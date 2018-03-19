@@ -25,6 +25,7 @@
   },
   "scripts": {
     "add-migration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "start": "node ./app/server.js"
   }
 }

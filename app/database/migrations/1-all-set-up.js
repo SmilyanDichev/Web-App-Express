@@ -17,8 +17,8 @@ var Sequelize = require('sequelize');
 
 var info = {
     "revision": 1,
-    "name": "models-and-associations-done",
-    "created": "2018-03-16T15:49:06.379Z",
+    "name": "all-set-up",
+    "created": "2018-03-19T13:14:35.585Z",
     "comment": ""
 };
 
@@ -140,7 +140,7 @@ var migrationCommands = [{
                     "type": Sequelize.STRING,
                     "allowNull": false
                 },
-                "admin_status": {
+                "isAdmin": {
                     "type": Sequelize.INTEGER,
                     "allowNull": false
                 },

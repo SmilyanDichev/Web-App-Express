@@ -33,20 +33,34 @@ module.exports = (sequelize, DataTypes) => {
       through: 'products_orders',
     });
 
-    Product.belongsTo(Category, {
+    Category.hasMany(Product, {
       foreignKey: {
         allowNull: false,
       },
       onDelete: 'CASCADE',
     });
 
-    Product.belongsTo(Promotion, {
+    Promotion.hasMany(Product, {
       foreignKey: {
         allowNull: false,
       },
       onDelete: 'CASCADE',
     });
-  };
 
-  return Product;
+  Product.belongsTo(Category, {
+    foreignKey: {
+      allowNull: false,
+    },
+    onDelete: 'CASCADE',
+  });
+
+  Product.belongsTo(Promotion, {
+    foreignKey: {
+      allowNull: false,
+    },
+    onDelete: 'CASCADE',
+  });
+};
+
+return Product;
 };

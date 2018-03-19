@@ -9,19 +9,23 @@ module.exports = (sequelize, DataTypes) => {
       orderStatus,
     } = models;
 
-    Order.belongsTo(User, {
+    User.hasMany(Order, {
       foreignKey: {
         allowNull: false,
       },
       onDelete: 'CASCADE',
     });
 
-    Order.belongsTo(orderStatus, {
+    orderStatus.hasMany(Order, {
       foreignKey: {
         allowNull: false,
       },
       onDelete: 'CASCADE',
     });
+
+    Order.belongsTo(orderStatus);
+
+    Order.belongsTo(User);
   };
   return Order;
 };

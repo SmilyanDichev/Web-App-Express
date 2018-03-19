@@ -203,7 +203,7 @@
                     "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
-                "admin_status": {
+                "isAdmin": {
                     "allowNull": false,
                     "seqType": "Sequelize.INTEGER"
                 },
