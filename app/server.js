@@ -4,6 +4,7 @@ const morgan = require('morgan');
 
 const data = require('./database/data');
 
+const config = require('./config');
 const app = express();
 
 app.set('view engine', 'pug');
@@ -12,5 +13,5 @@ app.use(morgan('combined'));
 
 require('./routes/admin.routes').init(app, data);
 
-app.listen(3001);
+app.listen(config.port);
 console.log('Server is running on port 3001');
