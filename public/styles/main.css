@@ -1,0 +1,36 @@
+body {
+    background-color: ghostwhite;
+    margin: 0;
+    padding-top: 70px;
+}
+
+h1 {
+    color: dodgerblue;
+    border: 3px solid purple;
+}
+
+.nav a {
+    color: white !important;
+}
+
+.navbar-nav li {
+    border-left: 1px solid white;
+}
+
+.navbar-nav li:first-of-type {
+    border: 0;
+}
+
+.navbar-brand {
+    color: greenyellow !important;
+}
+
+.active a {
+    color: greenyellow !important;
+}
+
+.loggedInUser {
+    padding: 15px 15px;
+    color: greenyellow;
+    font-weight: bold;
+}
