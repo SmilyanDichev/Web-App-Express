@@ -13,9 +13,23 @@ const init = (app, data) => {
             res.render(viewName);
         })
         .get('/categories', async (req, res) => {
-            const categories = await data.categories.getAll();
+            const categories = await data.category.getAll();
             const context = {
                 categories,
+            };
+            res.send(context);
+        })
+        .get('/users', async (req, res) => {
+            const users = await data.user.findByEmail('2admin1@foodstore.com');
+            const context = {
+                users,
+            };
+            res.send(context);
+        })
+        .get('/orders', async (req, res) => {
+            const orders = await data.order.getAll();
+            const context = {
+                orders,
             };
             res.send(context);
         });
