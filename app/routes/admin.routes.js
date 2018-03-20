@@ -2,11 +2,19 @@ const {
     Router,
 } = require('express');
 
+const {
+    productPlaceholderAr
+} = require('../test-ar');
+
+
 const init = (app, data) => {
     const router = new Router();
     router
         .get('/', async (req, res) => {
-            res.redirect('/admin');
+            const viewName = 'index';
+            res.render(viewName, {
+                products: productPlaceholderAr,
+            });
         })
         .get('/admin', async (req, res) => {
             const viewName = 'admin';

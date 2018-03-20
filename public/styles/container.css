@@ -1,0 +1,22 @@
+.product-discription {
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 200px;
+}
+
+.product-wrapper {
+    margin-bottom: 30px;
+}
+
+.product-content {
+    padding: 10px;
+    width: 99%;
+    height: 95%;
+    background-color:#eef7be;
+}
+
+.product-name {
+ color: ivory;
+}
