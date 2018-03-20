@@ -46,15 +46,13 @@ mixin navigation(buttons)
         span.icon-bar
       a.navbar-brand(href='#') WebSiteName
     #myNavbar.collapse.navbar-collapse
+      
       ul.nav.navbar-nav
         li.active
           a(href='#') Home
-        li
-          a(href='#') Page 1
-        li
-          a(href='#') Page 2
-        li
-          a(href='#') Page 3
+        each button in buttons
+         li
+         a(href=button.href) #{button.text}
       ul.nav.navbar-nav.navbar-right
         li
           a(href='#')

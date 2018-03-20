@@ -63,6 +63,24 @@ const productPlaceholderAr = [{
     },
 ];
 
-module.exports={
+const buttonPlaceholderAr = [{
+        href: '#',
+        text: 'dairy',
+    },
+    {
+        href: '#',
+        text: 'meat',
+    },
+    {
+        href: '#',
+        text: 'vegie',
+    },
+    {
+        href: '#',
+        text: 'fruit',
+    },
+];
+
+module.exports = {
     productPlaceholderAr,
 };

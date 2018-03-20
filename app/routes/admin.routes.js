@@ -3,7 +3,8 @@ const {
 } = require('express');
 
 const {
-    productPlaceholderAr
+    productPlaceholderAr,
+    buttonPlaceholderAr,
 } = require('../test-ar');
 
 
@@ -14,6 +15,7 @@ const init = (app, data) => {
             const viewName = 'index';
             res.render(viewName, {
                 products: productPlaceholderAr,
+                buttons: buttonPlaceholderAr,
             });
         })
         .get('/admin', async (req, res) => {
