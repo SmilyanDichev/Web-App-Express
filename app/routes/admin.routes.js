@@ -6,7 +6,7 @@ const {
     productPlaceholderAr,
     buttonPlaceholderAr,
 } = require('../test-ar');
-
+console.log(buttonPlaceholderAr);
 
 const init = (app, data) => {
     const router = new Router();

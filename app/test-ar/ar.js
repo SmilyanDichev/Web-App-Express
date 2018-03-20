@@ -83,4 +83,5 @@ const buttonPlaceholderAr = [{
 
 module.exports = {
     productPlaceholderAr,
+    buttonPlaceholderAr,
 };
