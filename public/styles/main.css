@@ -1,7 +1,6 @@
 body {
-    background-color: ghostwhite;
-    margin: 0;
-    padding-top: 70px;
+    /* margin: 0; */
+    background-color: darkolivegreen;
 }
 
 h1 {
@@ -13,6 +12,14 @@ h1 {
     color: white !important;
 }
 
+.navbar {
+ background-color:#eef7be;
+}
+
+/* .container{
+    background-color: darkolivegreen;
+} */
+
 .navbar-nav li {
     border-left: 1px solid white;
 }
@@ -22,15 +29,15 @@ h1 {
 }
 
 .navbar-brand {
-    color: greenyellow !important;
+    color: black !important;
 }
 
 .active a {
-    color: greenyellow !important;
+    color: black!important;
 }
 
 .loggedInUser {
     padding: 15px 15px;
-    color: greenyellow;
+    color: black;
     font-weight: bold;
 }
