@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+    title Gotin Sum
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    style(type='text/css').
+        ul li {
+                list-style-type: none;
+            }
+    
+    include bootstapNavBar.pug
+  body
+    +bootstapNavBar('Vegetables','Dairy','Fruit','Beverages','Register','Login')
+    
+    .col-xs-12.text-center
+        h2 Register
+        .form-group
+
+                label(for="", value="") Username:
+                .div
+                    input(type="text", placeholder="gotin")
+                label(for="", value="") E-mail:
+                .div
+                    input(type="email", placeholder="gotin@sum.be")
+                label(for="", value="") Password:
+                .div
+                    input(type="password", name="")
+                label(for="", value="") Re-enter password:
+                .div
+                    input(type="password", name="")
+                label(for="Address", value="Address") Add Address
+                .div
+                    textarea(name="address", cols="18", rows="3", placeholder="Sofia Mladost 1 Telerik Enterprise 1")
+        
+        
+        
+        button(type="submit") Register   
+        p my pants are full of determination
