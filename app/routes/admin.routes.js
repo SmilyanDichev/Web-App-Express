@@ -12,6 +12,9 @@ const init = (app, data) => {
     const router = new Router();
     router
         .get('/', async (req, res) => {
+            res.redirect('index');
+        })
+        .get('/index', async (req, res) => {
             const viewName = 'index';
             res.render(viewName, {
                 products: productPlaceholderAr,
@@ -20,7 +23,12 @@ const init = (app, data) => {
         })
         .get('/admin', async (req, res) => {
             const viewName = 'admin';
-            res.render(viewName);
+            res.render(viewName, {
+                buttons: [{ href: '/orders', text: 'Orders' },
+                { href: '/users', text: 'Users' },
+                { href: '/products', text: 'Products' },
+                { href: '/categories', text: 'Categories' }],
+            });
         })
         .get('/categories', async (req, res) => {
             const categories = await data.category.getAll();
@@ -30,7 +38,7 @@ const init = (app, data) => {
             res.send(context);
         })
         .get('/users', async (req, res) => {
-            const users = await data.user.findByEmail('2admin1@foodstore.com');
+            const users = await data.user.findByEmail('admin1@foodstore.com');
             const context = {
                 users,
             };

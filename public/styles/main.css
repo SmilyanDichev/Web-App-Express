@@ -1,5 +1,5 @@
 body {
-    /* margin: 0; */
+    padding-top: 70px;
     background-color: darkolivegreen;
 }
 
@@ -13,7 +13,7 @@ h1 {
 }
 
 .navbar {
- background-color:#eef7be;
+    background-color: #eef7be;
 }
 
 /* .container{
@@ -33,7 +33,7 @@ h1 {
 }
 
 .active a {
-    color: black!important;
+    color: black !important;
 }
 
 .loggedInUser {
