@@ -1,6 +1,7 @@
 body {
     /* margin: 0; */
     background-color: darkolivegreen;
+    padding-top:70px; 
 }
 
 h1 {
@@ -13,7 +14,7 @@ h1 {
 }
 
 .navbar {
- background-color:#eef7be;
+ background-color:darkgrey;
 }
 
 /* .container{
@@ -43,4 +44,8 @@ h1 {
 }
 .reg-form div input{
     width: 12em;
+}
+.confirm-deliver-form div.modal-content,
+.login-form div.modal-content{
+    margin-top: 70%;
 }
