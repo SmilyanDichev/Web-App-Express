@@ -43,3 +43,10 @@ h1 {
     color: black;
     font-weight: bold;
 }
+.reg-form div input{
+    width: 12em;
+}
+.confirm-deliver-form div.modal-content,
+.login-form div.modal-content{
+    margin-top: 70%;
+}
