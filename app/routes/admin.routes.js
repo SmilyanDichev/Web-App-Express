@@ -12,9 +12,6 @@ const init = (app, data) => {
     const router = new Router();
     router
         .get('/', async (req, res) => {
-            res.redirect('index');
-        })
-        .get('/index', async (req, res) => {
             const viewName = 'index';
             res.render(viewName, {
                 products: productPlaceholderAr,
@@ -24,6 +21,8 @@ const init = (app, data) => {
         .get('/admin', async (req, res) => {
             const viewName = 'admin';
             res.render(viewName, {
+                user: 'Admin1',
+                loggedIn: true,
                 buttons: [{ href: '/orders', text: 'Orders' },
                 { href: '/users', text: 'Users' },
                 { href: '/products', text: 'Products' },
