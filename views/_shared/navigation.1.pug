@@ -8,7 +8,7 @@ mixin navigation(buttons)
             span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
               span.badge.items-basket 10 
           button(type='button', data-toggle='collapse', data-target='.collapse')
-            span.glyphicon.glyphicon-align-justify(aria-hidden="true")
+            span.glyphicon.glyphicon-menu-hamburger(aria-hidden="true")
     .collapse.navbar-collapse.container
         ul.nav.navbar-nav
           li.active
@@ -16,8 +16,9 @@ mixin navigation(buttons)
           each button in buttons
             li
               a(href=button.href) #{button.text}
-          li.active
+          li
             +navigation2
+         
         ul.nav.navbar-nav.navbar-right
           li.hidden-xs
                 a(href='#')
@@ -31,10 +32,14 @@ mixin navigation(buttons)
             a(href='#', data-toggle="modal" data-target="#loginModal")
               span.glyphicon.glyphicon-log-in
               | Login
+        ul.nav.navbar-nav
 
 mixin navigation2(buttons)
-      form.navbar-form.navbar-left
-        div.input-group
-          input(placeholder="Search" type="text")
-        button.btn(type="submit" class="btn btn-default")
-          i.glyphicon.glyphicon-search
+  .container-fluid
+    .row
+      div
+        form.navbar-form(role="search")
+          input.col-xs-6
+      div
+        form.navbar-form(role="search")
+          input.col-xs-6

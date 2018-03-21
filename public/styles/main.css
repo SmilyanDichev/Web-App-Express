@@ -1,7 +1,6 @@
 body {
-    /* margin: 0; */
-    background-color: darkolivegreen;
-    padding-top:70px; 
+    background-color:#d0d8c7 !important;
+    padding-top: 70px;
 }
 
 h1 {
@@ -10,16 +9,17 @@ h1 {
 }
 
 .nav a {
-    color: white !important;
+    color: white;
 }
 
-.navbar {
- background-color:darkgrey;
+.navbar-toggle{
+ padding: 0px;
+ border:none !important;
 }
 
-/* .container{
-    background-color: darkolivegreen;
-} */
+.navbar-toggle:hover {
+    background-color: transparent !important;
+}
 
 .navbar-nav li {
     border-left: 1px solid white;
@@ -33,8 +33,9 @@ h1 {
     color: black !important;
 }
 
-.active a {
-    color: black!important;
+.glyphicon{
+    color: grey !important;
+
 }
 
 .loggedInUser {
