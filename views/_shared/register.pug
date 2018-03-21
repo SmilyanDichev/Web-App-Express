@@ -1,6 +1,4 @@
-extends ./_shared/master
-
-block content
+mixin register()
     button(class='btn btn-info btn-lg', data-toggle="modal" data-target="#regModal") Register
     
     div(class="reg-form modal fade", id="regModal", role="dialog")
@@ -13,7 +11,7 @@ block content
                         .row
                             .form-group.col-xs-3
                                 div
-                                    label(for="", value="") Username:
+                                    label(for="", value="") Name:
                                 div
                                     label(for="", value="") E-mail:            
                                 div
@@ -31,7 +29,7 @@ block content
                                 div
                                     input(type="text", placeholder="gotin")
                                 div
-                                    input(type="email", placeholder="gotin@sum.be")
+                                    input(type="email", placeholder="gotin@sum.az")
                                 div
                                     input(type="password", name="")
                                 div

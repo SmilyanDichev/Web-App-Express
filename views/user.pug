@@ -1,28 +1,13 @@
-doctype html
-html(lang='en')
-  head
-    title Gotin Sum
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-    style(type='text/css').
-        ul li {
-                list-style-type: none;
-            }
-    include bootstapNavBar.pug
-  body
-    +bootstapNavBar('Vegetables','Dairy','Fruit','Beverages','Profile','Logout')
-    
+extends ./_shared/master
+
+block content
     .container
-      h3.col-xs-3 Order History
-      h3.col-xs-3 Active Orders
-      h3.col-xs-3 Favorite Products
-      h3.col-xs-3 User Setting
-      .container
+      h3.col-xs-4 Order History
+      h3.col-xs-4 Active Orders
+      h3.col-xs-4 User Setting
+      .container.user-lists
         .row
-            ul.list-group.col-xs-3
+            ul.list-group.col-xs-4
                 li.row.list-group-item-info
                     .number.col-xs-3 #0001 
                     .date.col-xs-3 02.10.17
@@ -43,7 +28,7 @@ html(lang='en')
                     .date.col-xs-3 02.10.17
                     .price.col-xs-3 50 leva
                     input(type="button", value="Details", class="btn-primary")
-            ul.list-group.col-xs-3
+            ul.list-group.col-xs-4
                 li.row.list-group-item-danger
                     .number.col-xs-3 #0001 
                     .date.col-xs-3 02.10.17
@@ -69,46 +54,13 @@ html(lang='en')
                     .date.col-xs-3 02.10.17
                     .price.col-xs-3 50 leva
                     input(type="button", value="Details", class="btn-primary")
-            ul.list-group.col-xs-3
-                li.row.list-group-item-warning
-                    .item.col-xs-3 Rice
-                    .info.col-xs-3 1kg
-                    .price.col-xs-3 1 leva
-                    input(type="button", value="Buy", class="btn-primary")
-                li.row.list-group-item-warning
-                    .item.col-xs-3 Rice
-                    .info.col-xs-3 1kg
-                    .price.col-xs-3 1 leva
-                    input(type="button", value="Buy", class="btn-primary")
-                li.row.list-group-item-warning
-                    .item.col-xs-3 Rice
-                    .info.col-xs-3 1kg
-                    .price.col-xs-3 1 leva
-                    input(type="button", value="Buy", class="btn-primary")
-                    
-                li.row.list-group-item-warning
-                    .item.col-xs-3 Rice
-                    .info.col-xs-3 1kg
-                    .price.col-xs-3 1 leva
-                    input(type="button", value="Buy", class="btn-primary")
-            .col-xs-3
+            .col-xs-4
                 .form-group
                     .div
                         label(for="email", value="email") Change E-mail
                     input(type="text", placeholder="current@mail.com")
-                //- .form-group
-                //-     .div
-                //-         label(for="Address", value="Address") Add Address
-                //-         textarea(name="address", cols="31", rows="2", placeholder="Sofia Mladost 1 Telerik Enterprise 1")
-                    
-                //-         label(for="", value="") Pick Address
-                //-         .div
-                //-             input(type="radio", name="address1", value="12")
-                //-             label(for="Address", value="Address") Sofia Mladost 1 Telerik Enterprise 1
-                //-         .div
-                //-             input(type="radio", name="address2", value="12")
-                //-             label(for="Address", value="Address") Sofia Mladost 1 Telerik Enterprise 2
-                //-         .div
-                //-             input(type="radio", name="address3", value="12")
-                //-             label(for="Address", value="Address") Doncho Office
-    p the despair i feel spans several dimentions
+                    .div
+                        label(for="pass", value="") Confirm Password
+                    input(type="password", name="")
+                    .div
+                        input(type="submit", value="Change")
