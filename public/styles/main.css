@@ -1,6 +1,7 @@
 body {
     padding-top: 70px;
     background-color: darkolivegreen;
+    padding-top: 70px;
 }
 
 h1 {
@@ -13,7 +14,7 @@ h1 {
 }
 
 .navbar {
-    background-color: #eef7be;
+    background-color: darkgrey;
 }
 
 /* .container{

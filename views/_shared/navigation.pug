@@ -1,5 +1,5 @@
 mixin navigation(buttons)
- nav.navbar
+ nav.navbar.navbar-fixed-top
   .container-fluid
     .navbar-header
       button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
@@ -14,7 +14,7 @@ mixin navigation(buttons)
           a(href='#') Home
         each button in buttons
          li
-         a(href=button.href) #{button.text}
+          a(href=button.href) #{button.text}
       ul.nav.navbar-nav.navbar-right
         li
           a(href='#')
