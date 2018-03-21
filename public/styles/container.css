@@ -1,7 +1,8 @@
 .product-discription {
-    padding: 10px;
+    text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-top: 10px;
     white-space: nowrap;
     height: 15%;
 }
