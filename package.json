@@ -28,6 +28,6 @@
     "add-migration": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
     "migrate": "sequelize db:migrate",
     "start": "node ./app/server.js",
-    "test": "./node_modules/.bin/nyc ./node_modules/.bin/mocha ./tests/**/*.js"
+    "test": "./node_modules/.bin/nyc --all ./node_modules/.bin/mocha ./tests/**/*.js"
   }
 }

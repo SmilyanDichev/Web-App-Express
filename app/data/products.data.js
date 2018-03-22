@@ -16,7 +16,7 @@ class ProductsData extends Data {
                 model: Promotion,
                 where: {
                     id: {
-                        $eq: 1,
+                        $not: 1,
                     },
                 },
             }],
