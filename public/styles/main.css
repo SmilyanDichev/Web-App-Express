@@ -1,19 +1,28 @@
 body {
+    background-color:#d0d8c7 !important;
     padding-top: 70px;
-    background-color: darkolivegreen;
+}
+navbar-toggle{
+    height:0px !important;
+}
+
+h1 {
+    color: dodgerblue;
+    border: 3px solid purple;
 }
 
 .nav a {
-    color: white !important;
+    color: white;
 }
 
-.navbar {
-    background-color: darkgrey;
+.navbar-toggle{
+ padding: 0px;
+ border:none !important;
 }
 
-/* .container{
-    background-color: darkolivegreen;
-} */
+.navbar-toggle:hover {
+    background-color: transparent !important;
+}
 
 .navbar-nav li {
     border-left: 1px solid white;
@@ -27,8 +36,9 @@ body {
     color: black !important;
 }
 
-.active a {
-    color: black !important;
+.glyphicon{
+    color: grey !important;
+
 }
 
 .loggedInUser {
