@@ -1,0 +1,25 @@
+.product-discription {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 10px;
+    white-space: nowrap;
+    height: 15%;
+}
+
+.product-wrapper {
+    margin-bottom: 30px;
+    padding: 5px;
+
+}
+.inner-product-wrapper{
+    background-color: #eef7be ;
+    /* display: block;
+    margin: 5px auto; */
+    padding: 30px;
+}
+
+.product-name {
+    text-align: center;
+    color:black;
+}

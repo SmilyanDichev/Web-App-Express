@@ -1,0 +1,18 @@
+mixin container(products)
+ .container 
+      .row 
+      each product in products
+                  .col-sm-4.product-wrapper
+                        .inner-product-wrapper.container-fluid
+                              .row
+                                    h2.product-name.col-xs-12= product.name
+                              .row
+                                    img.product-image.col-xs-12(src="http://via.placeholder.com/300.png/09f/fff" alt="Image Title")
+                              .row
+                                    p.product-discription.col-xs-12= product.discription
+                              .row
+                                    p.product-category.col-xs-5.col-xs-offset-1 Category: #{product.category}
+                                    p.product-price.col-xs-5.col-xs-offset-1 Price: #{product.price}
+                              form.row()
+                                    a.btn.btn-default.col-xs-6.col-xs-offset-1(href='#', role='button') Order Now!
+                                    input.col-xs-3.col-xs-offset-1(type='number' min='1' max='10' value="1")

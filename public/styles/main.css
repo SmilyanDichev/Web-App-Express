@@ -1,0 +1,55 @@
+body {
+    background-color:#d0d8c7 !important;
+    padding-top: 70px;
+}
+navbar-toggle{
+    height:0px !important;
+}
+
+h1 {
+    color: dodgerblue;
+    border: 3px solid purple;
+}
+
+.nav a {
+    color: white;
+}
+
+.navbar-toggle{
+ padding: 0px;
+ border:none !important;
+}
+
+.navbar-toggle:hover {
+    background-color: transparent !important;
+}
+
+.navbar-nav li {
+    border-left: 1px solid white;
+}
+
+.navbar-nav li:first-of-type {
+    border: 0;
+}
+
+.navbar-brand {
+    color: black !important;
+}
+
+.glyphicon{
+    color: grey !important;
+
+}
+
+.loggedInUser {
+    padding: 15px 15px;
+    color: black;
+    font-weight: bold;
+}
+.reg-form div input{
+    width: 12em;
+}
+.confirm-deliver-form div.modal-content,
+.login-form div.modal-content{
+    margin-top: 70%;
+}
