@@ -6,7 +6,7 @@ const config = require('./config');
 const app = express();
 
 require('./config/express').init(app);
-require('./config/auth/auth').init(app, data);
+require('./config/auth').init(app, data);
 require('./routes').init(app, data);
 
 // const attachUserToRes = (req, res, next) => {
