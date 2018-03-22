@@ -23,6 +23,10 @@ class UsersData extends Data {
             }],
         });
     }
+
+    _isObjectValid(obj) {
+        return !!obj;
+    }
 }
 
 module.exports = UsersData;

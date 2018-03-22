@@ -6,10 +6,17 @@ const config = require('./config');
 const app = express();
 
 require('./config/express').init(app);
-require('./routes/admin.routes').init(app, data);
+require('./routes').init(app, data);
 
 // const attachUserToRes = (req, res, next) => {
 //     res.locals.user = req.user || null;
+//     return next();
+// };
+// const attachUserToRes = (req, res, next) => {
+//     if req.user and  req.user is admin:
+//         res.locals.nav = ...
+//     else:
+//         res.locals.user = req.user || null;
 //     return next();
 // };
 
