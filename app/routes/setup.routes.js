@@ -3,13 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 const init = (app, data) => {
-    app.get('/', async (req, res) => {
-        res.render('index', {
-            // products,
-            // buttons
-        });
-    });
-
     fs.readdirSync(__dirname)
         .filter((filename) => filename !== path.basename(__filename))
         .filter((filename) => filename !== 'index.js')

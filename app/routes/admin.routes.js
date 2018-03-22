@@ -2,36 +2,9 @@ const {
     Router,
 } = require('express');
 
-const {
-    productPlaceholderAr,
-    buttonPlaceholderAr,
-} = require('../test-ar');
-
-const {
-    ProductsController,
-} = require('./products.controller');
-
 const init = (app, data) => {
     const router = new Router();
-    const controller = new ProductsController(data);
     router
-        .get('/', async (req, res) => {
-            if (req.user && req.user.isAdmin) {
-                //  authinticated
-            } else {
-                //  anonymous
-            }
-            const viewName = 'index';
-            res.render(viewName, {
-                products: productPlaceholderAr,
-                buttons: buttonPlaceholderAr,
-            });
-        })
-        .get('/products', async (req, res) => {
-            const products = await controller.getAll();
-            // const context = { products };
-            res.send(products);
-        })
         .get('/admin', async (req, res) => {
             const viewName = 'admin';
             res.render(viewName, {
@@ -57,14 +30,14 @@ const init = (app, data) => {
             });
         })
         .get('/categories', async (req, res) => {
-            const categories = await controller.getAll();
+            const categories = await data.category.getAll();
             const context = {
                 categories,
             };
             res.send(context);
         })
         .get('/users', async (req, res) => {
-            const users = await data.user.getAll();
+            const users = await data.user.getByEmail('admin1@foodstore.com');
             const context = {
                 users,
             };
