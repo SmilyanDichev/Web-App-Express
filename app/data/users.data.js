@@ -4,6 +4,7 @@ const {
     User,
     Order,
     orderStatus,
+    Product,
 } = require('../database/models');
 
 class UsersData extends Data {
@@ -11,14 +12,14 @@ class UsersData extends Data {
         super(User, [Order]);
     }
 
-    findByEmail(email) {
+    getByEmail(email) {
         return this.Model.findOne({
             where: {
                 email,
             },
             include: [{
                 model: Order,
-                include: [orderStatus],
+                include: [Product, orderStatus],
             }],
         });
     }

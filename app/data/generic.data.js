@@ -5,7 +5,9 @@ class Data {
     }
 
     getAll() {
-        return this.Model.findAll();
+        return this.Model.findAll({
+            include: this.includes,
+        });
     }
 
     getById(id) {

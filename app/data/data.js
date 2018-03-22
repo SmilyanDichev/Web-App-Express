@@ -12,7 +12,7 @@ const UsersData = require('./users.data');
 
 module.exports = {
     user: new UsersData(),
-    order: new Data(Order),
+    order: new Data(Order, orderStatus),
     orderStatus: new Data(orderStatus),
     product: new Data(Product),
     category: new Data(Category),
