@@ -2,6 +2,9 @@ body {
     background-color:#d0d8c7 !important;
     padding-top: 70px;
 }
+navbar-toggle{
+    height:0px !important;
+}
 
 h1 {
     color: dodgerblue;
