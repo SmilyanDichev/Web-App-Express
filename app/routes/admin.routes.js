@@ -16,6 +16,11 @@ const init = (app, data) => {
     const controller = new ProductsController(data);
     router
         .get('/', async (req, res) => {
+            if (req.user && req.user.isAdmin) {
+                //  authinticated
+            } else {
+                //  anonymous
+            }
             const viewName = 'index';
             res.render(viewName, {
                 products: productPlaceholderAr,
@@ -32,10 +37,23 @@ const init = (app, data) => {
             res.render(viewName, {
                 user: 'Admin1',
                 loggedIn: true,
-                buttons: [{ href: '/orders', text: 'Orders' },
-                { href: '/users', text: 'Users' },
-                { href: '/products', text: 'Products' },
-                { href: '/categories', text: 'Categories' }],
+                buttons: [{
+                        href: '/orders',
+                        text: 'Orders',
+                    },
+                    {
+                        href: '/users',
+                        text: 'Users',
+                    },
+                    {
+                        href: '/products',
+                        text: 'Products',
+                    },
+                    {
+                        href: '/categories',
+                        text: 'Categories',
+                    }
+                ],
             });
         })
         .get('/categories', async (req, res) => {

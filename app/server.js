@@ -7,6 +7,7 @@ const app = express();
 
 require('./config/express').init(app);
 require('./routes/admin.routes').init(app, data);
+require('./config/auth/auth').init(app, data);
 
 // const attachUserToRes = (req, res, next) => {
 //     res.locals.user = req.user || null;

@@ -2,7 +2,7 @@ mixin login()
     div(class="login-form modal fade", id="loginModal", role="dialog")
         div.modal-dialog.modal-sm
             div.modal-content
-                div.modal-body
+                form.modal-body(action="/login" method="post")
                     .row
                         h2.col-xs-3 Login
                     .row
@@ -13,8 +13,8 @@ mixin login()
                                 label(for="", value="") Password:            
                         .form-group.col-xs-3
                             div
-                                input(type="email", placeholder="gotin@sum.az")
+                                input(type="email", name="email" placeholder="gotin@sum.az")
                             div
-                                input(type="password", name="")
+                                input(type="password", name="password")
                     div.modal-footer
                         button(type="submit") Login   
