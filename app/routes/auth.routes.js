@@ -1,22 +1,25 @@
+const passport = require('passport');
 const {
     Router,
 } = require('express');
-const passport = require('passport');
 
 const init = (app, data) => {
     const router = new Router();
-    console.log('auth routes');
-    router.get('/login', (req, res) => {
-        res.redirect('/');
-    });
-    router.post('/login', (req, res) => {
+    router
+        .get('/login', (req, res) => {
+            res.render('login');
+        })
+        .post('/signin', (req, res) => {
+            res.render('login');
+        })
+        .post('/login',
         passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/',
-            failureFlash: true,
-        });
-    });
-    app.use('/', router);
+            successRedirect: '/admin',
+            failureRedirect: '/login',
+            failureFlash: false,
+        }));
+
+app.use('/', router);
 };
 
 
