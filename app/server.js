@@ -24,12 +24,5 @@ require('./routes').init(app, data);
 
 // app.use(attachUserToRes);
 
-const test = async () => {
-    const result = await data.user.getByEmail('bobi11@gmail.com');
-    console.log(result);
-};
-test();
-
-
 app.listen(config.port);
 console.log('Server is running on port 3001');
