@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# nyc Output
+/.nyc_output
+

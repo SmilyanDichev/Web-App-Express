@@ -7,34 +7,44 @@ mixin register()
                         h2.col-xs-3 Register
                     .row
                         .form-group.col-xs-3
-                            div
+                            div.input-height
                                 label(for="", value="") Name:
-                            div
+                            div.input-height
                                 label(for="", value="") E-mail:            
-                            div
+                            div.input-height
                                 label(for="", value="") Password:        
-                            div
+                            div.input-height
                                 label(for="", value="") Re-enter password:        
-                            div
+                            div.input-height
                                 label(for="Address", value="Address") Line 1     
-                            div
+                            div.input-height
                                 label(for="Address", value="Address") Line 2
-                            div
+                            div.input-height
                                 label(for="Address", value="Address") City                                
-                        .form-group.col-xs-3
-                            div
-                                input(type="text", placeholder="gotin")
-                            div
-                                input(type="email", placeholder="gotin@sum.az")
-                            div
-                                input(type="password", name="")
-                            div
-                                input(type="password", name="")
-                            div
-                                input(type="text", placeholder="Street address")
-                            div
-                                input(type="text", placeholder="Apartment, floor, etc")
-                            div
-                                input(type="text", placeholder="Sofia")
+                        .form-group.col-xs-8
+                            div.input-height
+                                input(type="text", class="regFormInput", id="regFormName" placeholder="Name")
+                                span(id="regFormNameError", class="errorSpan") Name required!
+                                    
+                            div.input-height
+                                input(type="email", class="regFormInput", id="regFormEmail", placeholder="my@email.com")
+                                span(id="regFormEmailError", class="errorSpan") Email required!
+                                span(id="regFormInvalidEmailError", class="errorSpan") Invalid Email!
+                            div.input-height
+                                input(type="password", class="regFormInput", id="regFormPassword", name="", placeholder="Password")
+                                span(id="regFormPasswordError", class="errorSpan") Password required!
+                            div.input-height
+                                input(type="password", class="regFormInput", id="regFormPasswordConfirm", placeholder="Re-password", name="")
+                                span(id="regFormPasswordConfirmError", class="errorSpan") Passwords must match
+                            div.input-height
+                                input(type="text", class="regFormInput", id="regFormLine1", placeholder="Street address")
+                                span(id="regFormLine1Error", class="errorSpan") Required
+                            div.input-height
+                                input(type="text", class="regFormInput", id="regFormLine2", placeholder="Apartment, floor, etc")
+                                span(id="regFormLine2Error", class="errorSpan") Required
+                            div.input-height
+                                input(type="text", class="regFormInput", id="regFormLine3", placeholder="Sofia")
+                                span(id="regFormLine3Error", class="errorSpan") Required
                     div.modal-footer
-                        button(type="submit") Register   
+                        button(type="submit", class="btn btn-default", id="regFormSubmit") Register   
+                        button(type="submit", class="btn btn-default", id="regFormClose",data-toggle="modal" data-target="#regModal") Close   

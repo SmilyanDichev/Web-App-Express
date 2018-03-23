@@ -53,3 +53,25 @@ h1 {
 .login-form div.modal-content{
     margin-top: 70%;
 }
+.errorSpan
+{
+    display: none;
+    color: red;
+}
+.regFormInput {
+    margin: 1px;
+}
+@media only screen and (max-width: 940px) {
+    div.reg-form label{
+      margin-bottom: 5%;
+    }
+  }
+@media only screen and (max-width: 400px) {
+    div.reg-form label{
+      display: none;
+    }
+  }
+.input-height{
+    height: 50px;
+}
+

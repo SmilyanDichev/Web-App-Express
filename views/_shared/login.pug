@@ -7,14 +7,17 @@ mixin login()
                         h2.col-xs-3 Login
                     .row
                         .form-group.col-xs-3
-                            div
-                                label(for="", value="") Email:            
-                            div
-                                label(for="", value="") Password:            
-                        .form-group.col-xs-3
-                            div
-                                input(type="email", name="username" placeholder="gotin@sum.az")
-                            div
-                                input(type="password", name="password")
+                            div.input-height
+                                label(for="", value="") Email:          
+                            div.input-height
+                                label(for="", class="login-label" value="") Password:            
+                        .form-group.col-xs-6
+                            div.input-height
+                                input(type="email", name="username", id="loginFormEmail", placeholder="my@email.com")
+                                span(id="loginFormMailError", class="errorSpan") Required
+                            div.input-height
+                                input(type="password", id="loginFormPassword", name="password")
+                                span(id="loginFormPasswordError", class="errorSpan") Required
                     div.modal-footer
-                        button(type="submit") Login   
+                        button(type="submit", class="btn btn-default", id="loginFormSubmit") Login
+                        button(type="submit", class="btn btn-default", id="loginFormClose" ,data-toggle="modal" data-target="#loginModal") Close     

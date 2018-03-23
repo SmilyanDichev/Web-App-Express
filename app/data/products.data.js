@@ -3,11 +3,12 @@ const Data = require('./generic.data');
 const {
     Product,
     Promotion,
+    Category,
 } = require('../database/models');
 
 class ProductsData extends Data {
     constructor() {
-        super(Product, [Promotion]);
+        super(Product, [Promotion, Category]);
     }
 
     getPromoProducts() {
