@@ -3,11 +3,12 @@ const Data = require('./generic.data');
 const {
     Product,
     Promotion,
+    Category,
 } = require('../database/models');
 
 class ProductsData extends Data {
     constructor() {
-        super(Product, [Promotion]);
+        super(Product, [Promotion, Category]);
     }
 
     getPromoProducts() {
@@ -16,7 +17,7 @@ class ProductsData extends Data {
                 model: Promotion,
                 where: {
                     id: {
-                        $not: 1,
+                        $eq: 1,
                     },
                 },
             }],
