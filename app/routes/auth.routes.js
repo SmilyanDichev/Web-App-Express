@@ -14,7 +14,7 @@ const init = (app, data) => {
         })
         .post('/register', (req, res) => {
             console.log(req.body);
-            const address = `${req.body.city} ${req.body.street} ${req.body.city}`;
+            const address = `${req.body.city} ${req.body.street} ${req.body.apartment}`;
             const newUser = {
                 name: req.body.name,
                 email: req.body.email,
