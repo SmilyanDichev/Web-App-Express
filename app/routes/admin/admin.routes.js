@@ -25,7 +25,7 @@ const init = (app, data) => {
                     {
                         href: '/categories',
                         text: 'Categories',
-                    }
+                    },
                 ],
             });
         })
