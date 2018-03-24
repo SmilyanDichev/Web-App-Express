@@ -9,17 +9,21 @@ const init = (app, data) => {
         .get('/login', (req, res) => {
             res.render('login');
         })
-        .post('/signin', (req, res) => {
-            res.render('login');
+        .get('/register', (req, res) => {
+            console.log('get register');
+        })
+        .post('/register', (req, res) => {
+            data.user.create(req.body);
+            return res.redirect('/');
         })
         .post('/login',
-        passport.authenticate('local', {
-            successRedirect: '/admin',
-            failureRedirect: '/login',
-            failureFlash: false,
-        }));
+            passport.authenticate('local', {
+                successRedirect: '/admin',
+                failureRedirect: '/login',
+                failureFlash: false,
+            }));
 
-app.use('/', router);
+    app.use('/', router);
 };
 
 

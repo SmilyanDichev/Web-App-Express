@@ -24,6 +24,18 @@ class UsersData extends Data {
         });
     }
 
+    create(formInfo) {
+        const address = `${formInfo.city} ${formInfo.street} ${formInfo.apartment}`;
+        const newUser = {
+            name: formInfo.name,
+            email: formInfo.email,
+            address,
+            isAdmin: 0,
+            password: formInfo.password,
+        };
+        super.create(newUser);
+    }
+
     _isObjectValid(obj) {
         return !!obj;
     }
