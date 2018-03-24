@@ -10,10 +10,23 @@ const init = (app, data) => {
             res.render(viewName, {
                 user: 'Admin1',
                 loggedIn: true,
-                buttons: [{ href: '/orders', text: 'Orders' },
-                { href: '/users', text: 'Users' },
-                { href: '/products', text: 'Products' },
-                { href: '/categories', text: 'Categories' }],
+                buttons: [{
+                        href: '/orders',
+                        text: 'Orders',
+                    },
+                    {
+                        href: '/users',
+                        text: 'Users',
+                    },
+                    {
+                        href: '/products',
+                        text: 'Products',
+                    },
+                    {
+                        href: '/categories',
+                        text: 'Categories',
+                    }
+                ],
             });
         })
         .get('/categories', async (req, res) => {

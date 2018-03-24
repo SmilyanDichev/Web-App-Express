@@ -2,7 +2,7 @@ mixin login()
     div(class="login-form modal fade", id="loginModal", role="dialog")
         div.modal-dialog.modal-sm
             div.modal-content
-                div.modal-body
+                form.modal-body(action="/login" method="post")
                     .row
                         h2.col-xs-3 Login
                     .row
@@ -13,10 +13,10 @@ mixin login()
                                 label(for="", class="login-label" value="") Password:            
                         .form-group.col-xs-6
                             div.input-height
-                                input(type="email", id="loginFormEmail", placeholder="my@email.com")
+                                input(type="email", name="username", id="loginFormEmail", placeholder="my@email.com")
                                 span(id="loginFormMailError", class="errorSpan") Required
                             div.input-height
-                                input(type="password", id="loginFormPassword", name="")
+                                input(type="password", id="loginFormPassword", name="password")
                                 span(id="loginFormPasswordError", class="errorSpan") Required
                     div.modal-footer
                         button(type="submit", class="btn btn-default", id="loginFormSubmit") Login
