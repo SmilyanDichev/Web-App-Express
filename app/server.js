@@ -8,6 +8,14 @@ const app = express();
 require('./config/express').init(app);
 require('./routes').init(app, data);
 
+const attachNavButtons = (req, res, next) => {
+    res.locals.buttons = req.buttons || null;
+    console.log('*********************');
+    console.log(res.locals.buttons);
+    return next();
+};
+
+app.use(attachNavButtons);
 // const attachUserToRes = (req, res, next) => {
 //     res.locals.user = req.user || null;
 //     return next();
