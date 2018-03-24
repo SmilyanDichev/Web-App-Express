@@ -13,17 +13,7 @@ const init = (app, data) => {
             console.log('get register');
         })
         .post('/register', (req, res) => {
-            console.log(req.body);
-            const address = `${req.body.city} ${req.body.street} ${req.body.apartment}`;
-            const newUser = {
-                name: req.body.name,
-                email: req.body.email,
-                address,
-                isAdmin: 0,
-                password: req.body.password,
-            };
-            console.log(newUser);
-            // data.user.create(newUser);
+            data.user.create(req.body);
             return res.redirect('/');
         })
         .post('/login',
