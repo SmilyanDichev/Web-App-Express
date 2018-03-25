@@ -1,4 +1,5 @@
 const {
+    User,
     Order,
     orderStatus,
     Product,
@@ -13,7 +14,7 @@ const ProductsData = require('./products.data');
 
 module.exports = {
     user: new UsersData(),
-    order: new Data(Order, [Product, orderStatus]),
+    order: new Data(Order, [User, Product, orderStatus]),
     orderStatus: new Data(orderStatus),
     product: new ProductsData(),
     category: new Data(Category, [Product]),

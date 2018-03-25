@@ -1,0 +1,23 @@
+extends ./admin
+//- include ./_shared/navigation
+
+block admincontent
+    .container
+    table.table.table-striped.table-hover.table-dark
+        thead
+            tr
+                th(scope='col') #
+                th(scope='col') User
+                th(scope='col') Address
+                th(scope='col') Status
+        tbody
+            tr
+                th(scope='row') 1
+                td user email
+                td user address
+                td
+                    select(name="change order status")
+                        option In progress
+                        option(selected="selected") Delivered
+                        option In cart
+                    button(type="submit")  Submit

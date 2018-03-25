@@ -2,6 +2,7 @@ extends ./_shared/master
 include ./_shared/navigation
 
 block content
-    +navigation(buttons, loggedIn, user)
-    h1
-        | Admin Page
+    +navigation(buttons)
+    h2
+        | Welcome, #{user.name}
+    block admincontent

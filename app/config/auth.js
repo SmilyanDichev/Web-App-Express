@@ -7,24 +7,28 @@ const {
 
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
 const init = (app, data) => {
-    passport.use(new Strategy(async (username, password, done) => {
-        const user = await data.user.getByEmail(username);
-        if (!user) {
+    passport.use(new Strategy({
+        usernameField: 'email',
+        passwordField: 'password',
+      }, async (email, password, done) => {
+        const user = await data.user.getByEmail(email);
+        if (!user || user.password !== password) {
             return done(null, false);
         }
         return done(null, user);
     }));
 
-    passport.serializeUser((username, done) => {
-        done(null, username);
+    passport.serializeUser((email, done) => {
+        done(null, email);
     });
-    passport.deserializeUser(async (username, done) => {
-        if (!username) {
-            return done(new Error('invalid used'));
+    passport.deserializeUser(async (email, done) => {
+        if (!email) {
+            return done(new Error('invalid user'));
         }
 
-        return done(null, username);
+        return done(null, email);
     });
 
 
