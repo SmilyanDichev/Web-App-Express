@@ -1,10 +1,10 @@
 /* globals $ */
 $(function() {
     const $email = $('#loginFormEmail');
-    const $password = $('#loginFormPassword');
-    
+    const $password = $('#loginFormPassword');   
     const $submitBtn = $('#loginFormSubmit');
     const $clearBtn = $('#loginFormClose');
+
 
     const $emailError = $('#loginFormMailError');
     const $passwordError = $('#loginFormPasswordError');
