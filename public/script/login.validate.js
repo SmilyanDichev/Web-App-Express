@@ -3,8 +3,22 @@
 //                     if no data => display error message in input fields
 //                      and leave Login form open
 // WHEN ERROR: when there is error from the server
+$(function() {
+const $loginFormSubmit = $('#loginFormSubmit');
+const $signinFormSubmit = $('#signinFormSubmit');
 
-$(function () {
+$loginFormSubmit.on('click', function(e) {
+    let $ValidationError = $('#loginFormUserValidationError');
+    ajaxCall($ValidationError);
+});
+// $signinFormSubmit.on('click', function(e) {
+//     let $ValidationError = $('#signInFormUserValidationError');
+//     ajaxCall($ValidationError);
+// });
+
+
+const ajaxCall = function (messageSpan) {
+    
     $.ajax({
         type: 'POST',
         url: '/login',
@@ -20,8 +34,12 @@ $(function () {
             }
             // console.log(data);
         },
-        error: function (a, b) {
-            console.log(a, b);
+        error: function () {
+            messageSpan.text('Incorect!')
+            
         }
     });
+    // $ValidationError.text('Incorect!')
+    // location.reload();
+};
 });

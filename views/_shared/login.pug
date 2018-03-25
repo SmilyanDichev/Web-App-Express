@@ -30,13 +30,11 @@ mixin login()
                 form(action='/login', method='post')
                     .row.modal-header
                         h2.col-xs-4.col-xs-offset-3 Login
-                        span.errorSpan.col-xs-4.col-xs-offset-3(id="loginFormUserValidationError") Your email or password are incorect!
-                        span.errorSpan.col-xs-4.col-xs-offset-3(id="loginFormUserValidationError") Your email or password are incorect!
-                        span.errorSpan.col-xs-4.col-xs-offset-3(id="loginFormUserValidationError") Your email or password are incorect!
+                        span.col-xs-4.col-xs-offset-3(id="loginFormUserValidationError") &nbsp 
                     .modal-body
                         .row
                             label.col-xs-3 Email:
-                            input.col-xs-7.col-xs-offset-2#loginEmail(type='text', name='email')
+                            input.col-xs-7.col-xs-offset-2#loginEmail(type='email', name='email')
                     .modal-body
                         .row
                             label.col-xs-3 Password:

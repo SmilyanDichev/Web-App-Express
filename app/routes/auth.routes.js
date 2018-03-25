@@ -10,9 +10,10 @@ const sendErrorMessageLogin = (res) => {
     // //     responseMessage: 'Username or Password do not exist!',
 
     // // });
-    res.json({
-        bool: true,
-    });
+    // res.json({
+    //     bool: true,
+    // });
+    return;
 };
 
 const init = (app, data) => {

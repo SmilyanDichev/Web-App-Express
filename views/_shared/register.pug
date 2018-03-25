@@ -5,6 +5,7 @@ mixin register()
                 form(action="/register" method="post")
                     .row.modal-header
                         h2.col-xs-4.col-xs-offset-4 Register
+                        span.col-xs-4.col-xs-offset-4(id="signInFormUserValidationError") &nbsp 
                     .modal-body.input-height
                         .row
                             label.col-xs-3 Name:
