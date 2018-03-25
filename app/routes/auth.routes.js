@@ -21,6 +21,10 @@ const init = (app, data) => {
         .get('/register', (req, res) => {
             console.log('get register');
         })
+        .get('/logout', (req, res) => {
+            req.logout();
+            res.redirect('/');
+        })
         .post('/register', (req, res) => {
             data.user.create(req.body);
             return res.redirect('/');
@@ -49,10 +53,11 @@ const init = (app, data) => {
         })
         .post('/login',
             passport.authenticate('local', {
-                successRedirect: '/admin',
+                successRedirect: '/',
                 failureRedirect: '/login',
                 failureFlash: false,
-            }));
+            })
+        );
 
     app.use('/', router);
 };

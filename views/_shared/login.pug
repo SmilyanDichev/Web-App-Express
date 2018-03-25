@@ -1,4 +1,4 @@
-mixin login()    
+mixin login()
     //- div(class="login-form modal fade", id="loginModal", role="dialog")
         //- div.modal-dialog.modal-sm
         //-     div.modal-content
@@ -23,7 +23,7 @@ mixin login()
         //-                 input(type='submit', value='Log In')
                                 //- button(type="submit", class="btn btn-default", id="loginFormSubmit") Login
                                 //- button(type="button", class="btn btn-default", id="loginFormClose" ,data-toggle="modal" data-target="#loginModal") Close     
-    
+
     .login-form.modal.fade(id="loginModal", role="dialog")
         .modal-dialog.modal-sm
             .modal-content.container-fluid
@@ -35,13 +35,13 @@ mixin login()
                         span.errorSpan.col-xs-4.col-xs-offset-3(id="loginFormUserValidationError") Your email or password are incorect!
                     .modal-body
                         .row
-                            label.col-xs-3 Username:
-                            input.col-xs-7.col-xs-offset-2(type='email', name='username')
+                            label.col-xs-3 Email:
+                            input.col-xs-7.col-xs-offset-2#loginEmail(type='text', name='email')
                     .modal-body
                         .row
                             label.col-xs-3 Password:
-                            input.col-xs-7.col-xs-offset-2(type='password', name='password')
+                            input.col-xs-7.col-xs-offset-2#loginPassword(type='password', name='password')
                     .modal-footer
                         .row
                             button.col-xs-4.col-xs-offset-2(type="submit", class="btn btn-default", id="loginFormSubmit") Login
-                            button.col-xs-4.col-xs-offset-4(type="button", class="btn btn-default", id="loginFormClose" ,data-toggle="modal" data-target="#loginModal") Close     
+                            button.col-xs-4.col-xs-offset-4(type="button", class="btn btn-default", id="loginFormClose" ,data-toggle="modal" data-target="#loginModal") Close

@@ -8,12 +8,22 @@ const app = express();
 require('./config/express').init(app);
 require('./config/auth').init(app, data);
 
-require('./routes').init(app, data);
-
-// const attachUserToRes = (req, res, next) => {
-//     res.locals.user = req.user || null;
+// const attachNavButtons = (req, res, next) => {
+//     if (req.user && req.user.isAdmin !== 1) {
+//         res.local.nav =
+//     }
 //     return next();
 // };
+
+const attachUserToRes = (req, res, next) => {
+    res.locals.user = req.user || null;
+    return next();
+};
+
+app.use(attachUserToRes);
+
+require('./routes').init(app, data);
+// app.use(attachNavButtons);
 // const attachUserToRes = (req, res, next) => {
 //     if req.user and  req.user is admin:
 //         res.locals.nav = ...
