@@ -35,10 +35,10 @@ $(function() {
 
         if (isEmail && isPass) {
             // send to server
-            console.log({
-                email: $email.val(),
-                password: $password.val(),
-            });
+            // console.log({
+            //     email: $email.val(),
+            //     password: $password.val(),
+            // });
             $email.val('');
             $password.val('');
         }

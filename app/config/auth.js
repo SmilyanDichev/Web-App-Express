@@ -27,11 +27,8 @@ const init = (app, data) => {
         if (!email) {
             return done(new Error('invalid user'));
         }
-
         return done(null, email);
     });
-
-
     app.use(cookieParser());
     app.use(session({
         secret: config.secret,
@@ -39,8 +36,6 @@ const init = (app, data) => {
     app.use(passport.initialize());
     app.use(passport.session());
 };
-
-
 module.exports = {
     init,
 };
