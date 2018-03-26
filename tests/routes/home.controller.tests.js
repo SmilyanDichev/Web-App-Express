@@ -14,20 +14,14 @@ const fakeData = {
     product: {
         getPromoProducts: () => {},
     },
-
-    category: {
-        getAll: () => {},
-    },
 };
 describe('HomePageController', () => {
     describe('getHome()', () => {
-        it('when no promo products, expect empty array and not empty categories', async () => {
-            sinon.stub(fakeData.category, 'getAll').returns([{name: 'testCategory'}]);
+        it('when no promo products, expect empty array', async () => {
             sinon.stub(fakeData.product, 'getPromoProducts').returns([]);
             const controller = new Controller(fakeData);
             const result = await controller.getHome();
             expect(result.products).to.have.lengthOf(0);
-            expect(result.buttons).to.not.be.empty;
         });
 
         // NEEDS FIXING

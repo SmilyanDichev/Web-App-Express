@@ -61,6 +61,14 @@ h1 {
 .regFormInput {
     margin: 1px;
 }
+
+.ordersbtn {
+    margin-left: 3%;
+}
+
+.ordersAdmin {
+    display: none;
+}
 @media only screen and (max-width: 940px) {
     div.reg-form label{
       margin-bottom: 5%;
