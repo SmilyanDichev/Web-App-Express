@@ -48,7 +48,7 @@ const init = (app, data) => {
                     if (er) {
                         return next(er);
                     }
-                    return res.redirect('/user');
+                    return res.redirect('/admin');
                 });
             })(req, res, next);
         })

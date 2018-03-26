@@ -2,7 +2,6 @@ extends ./admin
 //- include ./_shared/navigation
 
 block admincontent
-    .container
     table.table.table-striped.table-hover.table-dark
         thead
             tr
@@ -11,13 +10,28 @@ block admincontent
                 th(scope='col') Address
                 th(scope='col') Status
         tbody
-            tr
-                th(scope='row') 1
-                td user email
-                td user address
-                td
-                    select(name="change order status")
-                        option In progress
-                        option(selected="selected") Delivered
-                        option In cart
-                    button(type="submit")  Submit
+        each user in context.allOrders
+            form(action="/admin/orders", method="post")
+                tr
+                    th(scope='row') 
+                        label
+                            input.ordersAdmin(name="orderId" type="text" value=user.orderId)
+                            span
+                                 =user.orderId
+                    td #{user.email}
+                    td #{user.address}
+                    td
+                        select(name="orderStatusId")
+                            if user.status === 'In cart'
+                                option(selected="selected") #{user.status}
+                                option(value=2) In progress
+                                option(value=1) Delivered
+                            else if user.status === 'In progress'
+                                option In cart
+                                option(selected="selected") #{user.status}
+                                option Delivered
+                            else if user.status === 'Delivered'
+                                option In cart
+                                option In progress
+                                option(selected="selected") #{user.status}
+                        button.ordersbtn.btn.btn-xs.btn-success(type="submit")  Submit

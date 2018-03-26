@@ -4,45 +4,32 @@ const {
 
 const Controller = require('./admin.controller');
 
-const defaultView = {
-    buttons: [{
-            href: '/admin/orders',
-            text: 'Orders',
-        },
-        {
-            href: '/admin/users',
-            text: 'Users',
-        },
-        {
-            href: '/admin/products',
-            text: 'Products',
-        },
-        {
-            href: '/admin/categories',
-            text: 'Categories',
-        },
-    ],
-};
-
 const init = (app, data) => {
     const router = new Router();
     const controller = new Controller(data);
     router
         .get('/', async (req, res) => {
-            const viewName = 'admin';
-            defaultView.user = req.user;
-            if (defaultView.user) {
-                res.render(viewName, defaultView);
+            if (req.user && req.user.isAdmin) {
+                res.render('admin');
             } else {
                 res.redirect('/');
             }
         })
         .get('/orders', async (req, res) => {
-            const context = await controller.getOrdersByStatus();
-            res.render('orders', {
-                defaultView,
-                context,
-            });
+            if (req.user && req.user.isAdmin) {
+                const context = await controller.getOrdersByStatus();
+                res.render('orders', {
+                    context,
+                });
+            } else {
+                res.redirect('/');
+            }
+        })
+        .post('/orders', async (req, res) => {
+            const test = req.body;
+            console.log('-=-=-=-=-=-=-=-=-');
+            console.log(test);
+            res.redirect('/admin/orders');
         })
         .get('/categories', async (req, res) => {
             const categories = await data.category.getAll();

@@ -4,13 +4,14 @@
 //                      and leave Login form open
 // WHEN ERROR: when there is error from the server
 $(function() {
-const $loginFormSubmit = $('#loginFormSubmit');
-const $signinFormSubmit = $('#signinFormSubmit');
+const $loginFormSubmit = $("#loginFormSubmit");
+const $signinFormSubmit = $("#signinFormSubmit");
 
-$loginFormSubmit.on('click', function(e) {
-    let $ValidationError = $('#loginFormUserValidationError');
+$loginFormSubmit.on("click", function(e) {
+    const $ValidationError = $("#loginFormUserValidationError");
     ajaxCall($ValidationError);
 });
+
 // $signinFormSubmit.on('click', function(e) {
 //     let $ValidationError = $('#signInFormUserValidationError');
 //     ajaxCall($ValidationError);
@@ -18,13 +19,12 @@ $loginFormSubmit.on('click', function(e) {
 
 
 const ajaxCall = function (messageSpan) {
-    
     $.ajax({
-        type: 'POST',
-        url: '/login',
+        type: "POST",
+        url: "/login",
         data: {
-            email: $('#loginEmail').val(),
-            password: $('#loginPassword').val(),
+            email: $("#loginEmail").val(),
+            password: $("#loginPassword").val()
         },
         success: function (data) {
             if (data) {
@@ -34,12 +34,10 @@ const ajaxCall = function (messageSpan) {
             }
             // console.log(data);
         },
-        error: function () {
-            messageSpan.text('Incorect!')
-            
+        error: function (e) {
+            messageSpan.val("Incorect!");
+            e.preventDefault();
         }
     });
-    // $ValidationError.text('Incorect!')
-    // location.reload();
 };
 });
