@@ -18,17 +18,14 @@ $(function () {
                 password: $('#loginPassword').val(),
             },
             success: function (user) {
-                console.log('success');
-                console.log(user);
-                $.get('');
+                location.reload(); 
+                $.get('index');
                 $('#loginModal').modal('hide')
             },
             error: function (er) {
                 $('#loginFormUserValidationError').text("Incorect!");
                 $('#loginFormUserValidationError').val("Incorect!");
                 $('#loginFormUserValidationError').css('color','red');
-                console.log('error');
-                console.log(er.status);
             }
         });
     });
