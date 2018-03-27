@@ -23,9 +23,6 @@ const init = (app, data) => {
         })
         .post('/login', (req, res, next) => {
             passport.authenticate('local', (err, user, info) => {
-                console.log(err);
-                console.log(user);
-                console.log(info);
                 if (err) {
                     return res.status(400).json(err);
                 }

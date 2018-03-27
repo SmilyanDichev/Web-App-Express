@@ -1,23 +1,18 @@
 body {
-    /* background-color:#d0d8c7 !important; */
+    background-color: rgb(254, 246, 235) !important;
     padding-top: 70px;
 }
 navbar-toggle{
     height:0px !important;
 }
 
-h1 {
-    color: dodgerblue;
-    border: 3px solid purple;
-}
-
 .nav a {
-    color: white;
+    color: rgb(194, 91, 86) !important;
 }
 
 .navbar-toggle{
  padding: 0px;
- border:none !important;
+ border: none !important;
 }
 
 .navbar-toggle:hover {
@@ -37,7 +32,7 @@ h1 {
 }
 
 .glyphicon{
-    color: grey !important;
+    color: rgb(194, 91, 86) !important;
 
 }
 
@@ -49,7 +44,7 @@ h1 {
 .reg-form div input{
     width: 12em;
 }
-.confirm-deliver-form div.modal-content,
+.confirm-deliver-form, .modal-content,
 .login-form div.modal-content{
     margin-top: 70%;
 }
@@ -61,6 +56,9 @@ h1 {
 .regFormInput {
     margin: 1px;
 }
+.userGreeting {
+    padding-left: 1%;
+}
 
 .ordersbtn {
     margin-left: 3%;
@@ -69,6 +67,67 @@ h1 {
 .ordersAdmin {
     display: none;
 }
+
+.ordersTitle {
+    padding-left: 2%;
+}
+
+.inner-product-wrapper {
+    border-radius: 15px;
+    background-color: rgb(82, 85, 100);
+    padding-top: 0;
+}
+
+.product-name {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.product-name-sale {
+    color: greenyellow;
+    font-weight: bold;
+}
+.product-sale {
+    color: greenyellow;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 3%;
+}
+
+/* .saleContainer {
+    background-color: rgb(150, 192, 206);
+} */
+
+.price-was {
+    color: wheat;
+    font-size: 1.2em;
+    text-decoration: line-through;
+}
+
+.product-oldPrice {
+    color: wheat;
+    font-size: 1.2em;
+    text-decoration: line-through;
+}
+
+.price-now {
+    color: greenyellow;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+.product-newPrice {
+    color: greenyellow;
+    font-size: 1.5em;
+}
+
+.product-price {
+    color: wheat;
+    font-size: 20px;
+    padding-top: 3%;
+}
+
 @media only screen and (max-width: 940px) {
     div.reg-form label{
       margin-bottom: 5%;
