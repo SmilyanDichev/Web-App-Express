@@ -5,6 +5,7 @@ $(function () {
         const currentStoredObject = localStorage.getItem(localStorageSelector);
         const currentStoredObjectJSON = JSON.parse(currentStoredObject);
         const currentStorage = currentStoredObjectJSON.storage;
+        console.log(counter);
         currentStorage.push(lastStorage);
         clientOrders = {
             counter: counter,
@@ -43,14 +44,16 @@ $(function () {
     products.forEach((item) => {
         const name = $(item).find("h2").first().text();
         const button = $(item).find("a:contains('Add to basket')").first();
-        const number = button.siblings().first().val();
+        const number = button.siblings().first()
         const order = {
             name: name,
             number: number
         };
 
         $(button).click(function (e) {
-            counter += +number;
+            const latestNumber = $(number).val();
+            console.log( latestNumber);
+            counter += +latestNumber;
             addCounter();
             addToStorage(order, counter);
         });
