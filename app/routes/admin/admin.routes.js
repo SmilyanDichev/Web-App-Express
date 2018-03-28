@@ -18,9 +18,17 @@ const init = (app, data) => {
         .get('/orders', async (req, res) => {
             if (req.user && req.user.isAdmin) {
                 const context = await controller.getOrdersByStatus();
-                res.render('orders', {
+                res.render('admin/orders', {
                     context,
                 });
+            } else {
+                res.redirect('/');
+            }
+        })
+        .get('/products', async (req, res) => {
+            if (req.user && req.user.isAdmin) {
+                const context = await controller.getAllProducts();
+                res.render('admin/products');
             } else {
                 res.redirect('/');
             }
