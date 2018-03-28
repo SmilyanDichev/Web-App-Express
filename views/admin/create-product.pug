@@ -1,0 +1,33 @@
+#createProductModal.modal.fade(role='dialog')
+    .modal-dialog.modal-md
+        .modal-content
+            .modal-header
+                h4.modal-title Add Product to Database
+            .modal-body
+                .row
+                    .col-xs-6.col-lg-6
+                        h4 Category
+                        select.create-product.category-select.form-control(required='required')
+                            option#default-category(selected='selected', disabled='disabled') Select Category
+                            each category in context.allCategories
+                                option(name=category.name value=category.id) #{category.name}
+                        .create-product.name
+                            h4 Product Name
+                            input.form-control(placeholder='Product Name', type='text', required='required')
+                        .create-product.price
+                            h4 Product Price
+                            input.form-control(placeholder='0.00', type='number', step='0.01', required='required')
+                        h4 Promotion
+                        select.create-product.promotion-select.form-control(required='required')
+                            option#default-promotion(selected='selected', disabled='disabled') Select Promotion
+                            each promo in context.allPromotions
+                                option(name=promo.type value=promo.id) #{promo.type}
+                        .create-product.picture-url
+                            h4 Picture
+                            input#product-img-url.form-control(type='text', placeholder='Picture URL of the product', required='required')
+                        .save-close-product.row
+                    .col-xs-6.col-lg-6
+                        img#preview(src='', width='100%', height='auto')
+            .modal-footer
+                button#save-product.btn.btn-success(type='button') Save
+                button#close-create-product.btn.btn-danger(type='button') Close
