@@ -16,8 +16,6 @@ class HomePageController {
                 saleSign: 'SALE!',
             };
         });
-        allPromoProducts.forEach((product) => console.log(product));
-
         return {
             products: allPromoProducts,
         };
@@ -43,7 +41,6 @@ class HomePageController {
                 oldPrice: product.price,
             };
         });
-        console.log(categoryProducts);
         return {
             products: categoryProducts,
         };

@@ -1,0 +1,47 @@
+extends ./admin
+
+block admincontent
+    h3.adminPagesTitle
+        | All Products
+    .dialog
+        .container
+        button.admin-add.btn.btn-success.btn-md(type='button', data-toggle='modal', data-target='#myModal') Add product
+    // Modal
+    #myModal.modal.fade(role='dialog')
+        .modal-dialog.modal-md
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') ×
+                    h4.modal-title Add Product to Database
+                .modal-body
+                    .row
+                        .col-xs-6.col-lg-6
+                            h4 Category
+                            select.create-product.category-select.form-control(required='required')
+                                option#default-category(selected='selected', disabled='disabled') Select Category
+                                option(value='') Fruits
+                                option(value='') Vegetables
+                                option(value='') Meat
+                                option(value='') Dairy
+                                option(value='') Drinks
+                            .create-product.name
+                                h4 Product Name
+                                input.form-control(placeholder='Product Name', type='text', value='', required='required', pattern='', title='')
+                            .create-product.price
+                                h4 Product Price
+                                input.form-control(placeholder='0.00', type='text', value='', required='required', pattern='', title='')
+                            h4 Promotion
+                            select.create-product.promotion-select.form-control(required='required')
+                                option#default-promotion(selected='selected', disabled='disabled') Select Promotion
+                                option(value='') No promo
+                                option(value='') 0.2
+                                option(value='') 0.5
+                            .create-product.picture-url
+                                h4 Picture
+                                input#product-img-url.form-control(type='text', placeholder='URL of the meal', value='', required='required')
+                            .save-close-recipe.row
+                        .col-xs-6.col-lg-6
+                            img#preview(src='', width='100%', height='auto')
+                .modal-footer
+                    button#save-recipe.btn.btn-success(type='button') Save
+                    button#close-add-recipe.btn.btn-danger(type='button', data-dismiss='modal') Close

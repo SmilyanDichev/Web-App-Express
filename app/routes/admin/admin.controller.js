@@ -39,6 +39,10 @@ class AdminController {
     async updateOrderStatus(orderId, newStatusId) {
         return await this.data.order.updateStatus(orderId, newStatusId);
     }
+
+    async getAllProducts() {
+        return this.data.product.getAll();
+    }
 }
 
 module.exports = AdminController;
