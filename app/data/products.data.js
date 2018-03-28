@@ -23,6 +23,21 @@ class ProductsData extends Data {
             }],
         });
     }
+
+    getByCategory(category) {
+        return this.Model.findAll({
+            include: [{
+                    model: Category,
+                    where: {
+                        name: category,
+                    },
+                },
+                {
+                    model: Promotion,
+                },
+            ],
+        });
+    }
 }
 
 module.exports = ProductsData;

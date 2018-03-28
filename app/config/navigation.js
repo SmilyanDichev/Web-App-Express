@@ -6,6 +6,7 @@ const init = async (data) => {
         return {
             href: productsRoute + cat.name,
             text: cat.name,
+            id: cat.id,
         };
     });
 

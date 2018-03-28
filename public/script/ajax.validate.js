@@ -19,7 +19,6 @@ $(function () {
             },
             success: function (user) {
                 location.reload();
-                $.get("index");
                 $("#loginModal").modal("hide");
             },
             error: function (er) {

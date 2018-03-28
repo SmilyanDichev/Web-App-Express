@@ -26,9 +26,10 @@ const init = (app, data) => {
             }
         })
         .post('/orders', async (req, res) => {
-            const test = req.body;
-            console.log('-=-=-=-=-=-=-=-=-');
-            console.log(test);
+            const order = req.body;
+            const orderId = +order.orderId;
+            const newStatus = +order.statusId;
+            await controller.updateOrderStatus(orderId, newStatus);
             res.redirect('/admin/orders');
         })
         .get('/categories', async (req, res) => {
