@@ -14,6 +14,9 @@ const init = (app, data) => {
             req.logout();
             res.redirect('/');
         })
+        .get('/user-anon', (req, res) =>{
+           res.render('user');
+        })
         .get('/login', (req, res) => {
             res.render('login');
         })

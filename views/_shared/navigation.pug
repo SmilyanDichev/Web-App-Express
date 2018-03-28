@@ -4,7 +4,7 @@ mixin navigation()
       .navbar-header
         a.navbar-brand(href='/') Food Store Express
         div.navbar-toggle
-            a(href='#')
+            a(href='/user-anon')
               span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
                 span.badge.items-basket 10
             button.btn.btn-default(type='button', data-toggle='collapse', data-target='.collapse')
@@ -24,7 +24,7 @@ mixin navigation()
                     i.glyphicon.glyphicon-search
           ul.nav.navbar-nav.navbar-right
             li.hidden-xs
-                  a(href='#')
+                  a(href='/user-anon')
                     span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
                       span.badge.items-basket  10
             if user

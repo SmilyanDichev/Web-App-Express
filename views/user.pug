@@ -1,11 +1,16 @@
 extends ./_shared/master
-
+include ./_shared/login
+include ./_shared/register
+include ./_shared/choose
 block content
+    +login()
+    +register()
+    +chooseLoginSign()
     .container
-      h3.col-xs-4 Order History
-      h3.col-xs-4 Active Orders
-      h3.col-xs-4 User Setting
-      .container.user-lists
+        h3.col-xs-4 Order History
+        h3.col-xs-4 Active Orders
+        h3.col-xs-4 User Setting
+        .container.user-lists
         .row
             ul.list-group.col-xs-4
                 li.row.list-group-item-info
@@ -64,3 +69,8 @@ block content
                     input(type="password", name="")
                     .div
                         input(type="submit", value="Change")
+            .row
+                a.btn.btn-default(href='#' data-toggle="modal" data-target="#signlogModal")
+                    span Confirm delivery
+
+
