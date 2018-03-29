@@ -44,14 +44,19 @@ class AdminController {
         const allProducts = await this.data.product.getAll();
         const allCategories = await this.data.category.getAll();
         const allPromotions = await this.data.promotion.getAll();
-        // console.log(allProducts);
-        // console.log('-=-=-=-=-=-=-=-=-=-=-=-==-==-=-=-==--=-=-');
-        // console.log(allCategories);
         return {
             allProducts,
             allCategories,
             allPromotions,
         };
+    }
+
+    async createProduct(productObj) {
+        return this.data.product.create(productObj);
+    }
+
+    async updateProduct(productObj) {
+        return this.data.product.updateProduct(productObj);
     }
 }
 

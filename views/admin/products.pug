@@ -1,10 +1,10 @@
 extends ./admin
+include ./create-product
 
 block admincontent
     h3.adminPagesTitle
         | All Products
-    .dialog
-        .container
+    .container-fluid
         button#addProduct.admin-add.btn.btn-success.btn-md(type='button') Add product
         table.table.table-striped.table-hover.table-dark
             thead
@@ -17,33 +17,35 @@ block admincontent
                     th(scope='col') Picture
                     th(scope='col') Picture URL
             tbody
-            each product in context.allProducts
-                form(action='/admin/products', method='post')
+            each product in allProducts
+                form(action='/admin/products/update', method='post')
                     tr
                         th(scope='row') 
                             label
-                                input.productsAdmin(name='productId' type='text' value=product.id)
+                                input.productsAdmin(name='id' type='text' value=product.id)
                                 span
                                      =product.id
                         td
-                            select(name='categoryId')
-                                each category in context.allCategories
+                            select(name='CategoryId')
+                                each category in allCategories
                                     if category.name === product.Category.name
                                         option(selected='selected' name=category.name value=category.id) #{category.name}
                                     else
                                         option(name=category.name value=category.id) #{category.name}
-                        td #{product.name}
                         td 
-                            input(type='number' value=product.price)
+                            input(type='text' placeholder=product.name name='name' value=product.name size='15' required)
+                        td 
+                            input(type='number' min='0.49' step='0.01' name='price' value=product.price)
                         td
-                            select(name='promotionId')
-                                each promo in context.allPromotions
+                            select(name='PromotionId')
+                                each promo in allPromotions
                                     if product.Promotion.type === promo.type
                                         option(selected='selected' name=promo.type value=promo.id) #{promo.type}
                                     else
                                         option(name=promo.type value=promo.id) #{promo.type}
                         td 
-                            img(src=product.pictureUrl width='50px' height='auto')
+                            img#miniPicture(src=product.pictureUrl width='50px' height='auto')
                         td 
-                            input(type="url", name="", value=product.pictureUrl)
+                            input#editPictureUrl(type="url", name="pictureUrl", size='15', value=product.pictureUrl required='required')
                             button.ordersbtn.btn.btn-xs.btn-success(type='submit')  Submit
+    +create-product()
