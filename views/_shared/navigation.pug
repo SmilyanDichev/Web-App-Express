@@ -6,7 +6,7 @@ mixin navigation()
         div.navbar-toggle
             a(href='/user-anon')
               span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
-                span.badge.items-basket 10
+                span.badge.items-basket 0
             button.btn.btn-default(type='button', data-toggle='collapse', data-target='.collapse')
               span.glyphicon.glyphicon-align-justify(aria-hidden="true")
       .collapse.navbar-collapse.container
@@ -24,9 +24,9 @@ mixin navigation()
                     i.glyphicon.glyphicon-search
           ul.nav.navbar-nav.navbar-right
             li.hidden-xs
-                  a(href='/user-anon')
-                    span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
-                      span.badge.items-basket  10
+              a(href="")
+                span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
+                  span.badge.items-basket  0
             if user
               li
                 a(href='#')

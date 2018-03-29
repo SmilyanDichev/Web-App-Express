@@ -13,12 +13,30 @@ class OrdersData extends Data {
     }
 
     updateStatus(orderId, newStatusId) {
-        return Order.update({
+        return this.Model.update({
             orderStatusId: newStatusId,
         }, {
             where: {
                 id: orderId,
             },
+        });
+    }
+
+    getUserOrders(email) {
+        return this.Model.findAll({
+            include: [{
+                    model: User,
+                    where: {
+                        email,
+                    },
+                },
+                {
+                    model: Product,
+                },
+                {
+                    model: orderStatus,
+                },
+            ],
         });
     }
 }

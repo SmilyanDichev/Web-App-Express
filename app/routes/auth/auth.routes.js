@@ -7,15 +7,9 @@ const {
 const init = (app, data) => {
     const router = new Router();
     router
-        .get('/register', (req, res) => {
-            res.send('get register');
-        })
         .get('/logout', (req, res) => {
             req.logout();
             res.redirect('/');
-        })
-        .get('/user-anon', (req, res) =>{
-           res.render('user');
         })
         .get('/login', (req, res) => {
             res.render('login');
@@ -30,7 +24,7 @@ const init = (app, data) => {
                     return res.status(400).json(err);
                 }
                 if (!user) {
-                    return res.status(300).json(user);
+                    return res.status(300).status(300).json(user);
                 }
                 req.logIn(user, (er) => {
                     if (er) {
