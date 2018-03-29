@@ -4,8 +4,6 @@ class UserController {
     }
     async getUserOrdersHistory(email) {
         let ordersByUser = await this.data.order.getUserOrders(email);
-        console.log("000000000000000000000000000");
-        console.log(typeof ordersByUser);
         ordersByUser = ordersByUser.map((user) => {
             let orderTime = user.createdAt.toString();
             let updateTime = user.updatedAt.toString();
@@ -21,17 +19,6 @@ class UserController {
                 updated: updateTime[0],
             };
         });
-        // const userOrderHistory =[{
-        //     order: 1,
-        // }, {
-        //     order: 2,
-        // },
-        // {
-        //     order: 3,
-        // },
-        // {
-        //     order: 4,
-        // }];
         return {
             ordersByUser,
         };

@@ -18,16 +18,6 @@ const init = (app, data) => {
             } else {
                 res.redirect('/'); // TO DO anon page
             }
-
-            // console.log('!!!!!!!!!!!');
-            // console.log(context);
-            // if (req.user && req.user.isAdmin) {
-            //     res.render('./user/user', {
-            //         context,
-            //     });
-            // }
-
-
         });
     app.use('/user', router);
 };
