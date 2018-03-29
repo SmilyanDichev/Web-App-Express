@@ -7,6 +7,7 @@ const {
     Promotion,
 } = require('./models');
 
+const db = require('./models/index');
 const run = async () => {
     const allOrders = await Order.findAll({
         include: [Product, User, orderStatus],
@@ -30,13 +31,20 @@ const run = async () => {
     // category1.getProducts();
     // console.log(category1);
 
+    const allTables = await db.sequelize.showAllSchemas();
+    allTables
+        .filter((tablename) => tablename.Tables_in_food_store !== 'orderstatuses')
+        .filter((tablename) => tablename.Tables_in_food_store !== 'products_orders')
+        .filter((tablename) => tablename.Tables_in_food_store !== 'sequelizemeta')
+        .forEach((tablename) => console.log(tablename.Tables_in_food_store));
+
     console.log('=================================');
 
-    console.log('allOrders', allOrders);
-    console.log('allProducts', allProducts);
-    console.log('allUsers', allUsers);
-    console.log('productCategory', productCategory);
-    console.log('productPromotion', productPromotion);
+    // console.log('allOrders', allOrders);
+    // console.log('allProducts', allProducts);
+    // console.log('allUsers', allUsers);
+    // console.log('productCategory', productCategory);
+    // console.log('productPromotion', productPromotion);
 };
 
 run();

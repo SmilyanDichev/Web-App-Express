@@ -1,0 +1,36 @@
+extends ./admin
+//- include ./_shared/navigation
+
+block admincontent
+    h3.adminPagesTitle
+        | All Orders
+    table.table.table-striped.table-hover.table-dark
+        thead
+            tr
+                th(scope='col') #
+                th(scope='col') User
+                th(scope='col') Address
+                th(scope='col') Order Date
+                th(scope='col') Updated
+                th(scope='col') Status
+        tbody
+        each user in allOrders
+            form(action='/admin/orders', method='post')
+                tr
+                    th(scope='row') 
+                        label
+                            input.ordersAdmin(name='orderId' type='text' value=user.orderId)
+                            span
+                                 =user.orderId
+                    td #{user.email}
+                    td #{user.address}
+                    td #{user.date}
+                    td #{user.updated}
+                    td
+                        select(name='statusId')
+                            each status in orderStats
+                                if status.name === user.status
+                                    option(selected='selected' name=status.name value=status.id) #{status.name}
+                                else
+                                    option(name=status.name value=status.id) #{status.name}
+                        button.ordersbtn.btn.btn-xs.btn-success(type='submit')  Submit

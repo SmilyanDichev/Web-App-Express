@@ -1,40 +1,48 @@
 mixin register()
-    div(class="reg-form modal fade", id="regModal", role="dialog")
-        div.modal-dialog
-            div.modal-content
-                div.modal-body
-                    .row
-                        h2.col-xs-3 Register
-                    .row
-                        .form-group.col-xs-3
-                            div
-                                label(for="", value="") Name:
-                            div
-                                label(for="", value="") E-mail:            
-                            div
-                                label(for="", value="") Password:        
-                            div
-                                label(for="", value="") Re-enter password:        
-                            div
-                                label(for="Address", value="Address") Line 1     
-                            div
-                                label(for="Address", value="Address") Line 2
-                            div
-                                label(for="Address", value="Address") City                                
-                        .form-group.col-xs-3
-                            div
-                                input(type="text", placeholder="gotin")
-                            div
-                                input(type="email", placeholder="gotin@sum.az")
-                            div
-                                input(type="password", name="")
-                            div
-                                input(type="password", name="")
-                            div
-                                input(type="text", placeholder="Street address")
-                            div
-                                input(type="text", placeholder="Apartment, floor, etc")
-                            div
-                                input(type="text", placeholder="Sofia")
-                    div.modal-footer
-                        button(type="submit") Register   
+    .reg-form.modal.fade(id="regModal", role="dialog" )
+        .modal-dialog
+            .modal-content.container-fluid
+                form(action="/register" method="post")
+                    .row.modal-header
+                        h2.col-xs-4.col-xs-offset-4 Register
+                        span.col-xs-4.col-xs-offset-4(id="signInFormUserValidationError") &nbsp 
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 Name:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="name", id="regFormName", placeholder="Your name")
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormNameError") Name required!
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 Email:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="email", name="email", id="regFormEmail", placeholder="your@email.com")
+                            span.col-xs-7.col-xs-offset-2(id="regFormEmailError", class="errorSpan") Email required!
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormInvalidEmailError") Invalid Email!
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 Password:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="password", name="password", id="regFormPassword", placeholder="Password")
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormPasswordError") Password required!
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 Confirm Password:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="password", name="password2", id="regFormPasswordConfirm", placeholder="Password")
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormPasswordConfirmError") Passwords must match!
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 City:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="city", id="regFormLine1", placeholder="City")
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormLine1Error") Required!
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 Street:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="street", id="regFormLine2", placeholder="Street")
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormLine2Error") Required!
+                    .modal-body.input-height
+                        .row
+                            label.col-xs-3 Apartment:
+                            input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="apartment", id="regFormLine3", placeholder="Apartment")
+                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormLine3Error") Required!
+                    .modal-footer
+                        .row
+                            button.btn.btn-default.col-xs-4.col-xs-offset-2(type="submit", id="signinFormSubmit") Submit
+                            button.btn.btn-default.col-xs-4.col-xs-offset-4(type="button", id="signinFormClose" ,data-toggle="modal" data-target="#regModal") Close     

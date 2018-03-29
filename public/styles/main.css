@@ -1,23 +1,23 @@
 body {
-    background-color:#d0d8c7 !important;
+    background-color: rgb(254, 246, 235) !important;
     padding-top: 70px;
 }
 navbar-toggle{
     height:0px !important;
 }
 
-h1 {
-    color: dodgerblue;
-    border: 3px solid purple;
+.nav {
+    background-color: rgb(82, 85, 100);
+    border-color: transparent !important;
 }
 
 .nav a {
-    color: white;
+    color: rgb(255, 255, 255) !important;
 }
 
 .navbar-toggle{
- padding: 0px;
- border:none !important;
+    padding: 0px;
+    border: none !important;
 }
 
 .navbar-toggle:hover {
@@ -33,11 +33,11 @@ h1 {
 }
 
 .navbar-brand {
-    color: black !important;
+    color: greenyellow !important;
 }
 
 .glyphicon{
-    color: grey !important;
+    color: greenyellow !important;
 
 }
 
@@ -49,7 +49,115 @@ h1 {
 .reg-form div input{
     width: 12em;
 }
-.confirm-deliver-form div.modal-content,
+.confirm-deliver-form, .modal-content,
 .login-form div.modal-content{
     margin-top: 70%;
 }
+.errorSpan
+{
+    display: none;
+    color: red;
+}
+.regFormInput {
+    margin: 1px;
+}
+
+.userGreeting {
+    padding-left: 1%;
+}
+
+.ordersbtn {
+    margin-left: 3%;
+}
+
+.ordersAdmin, .productsAdmin {
+    display: none;
+}
+
+.adminPagesTitle {
+    padding-left: 2%;
+}
+
+.admin-add {
+    margin-left: 2%;
+}
+
+.inner-product-wrapper {
+    border-radius: 15px;
+    background-color: rgb(82, 85, 100);
+    padding-top: 0;
+}
+
+.product-name {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.product-name-sale {
+    color: greenyellow;
+    font-weight: bold;
+}
+.product-sale {
+    color: greenyellow;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 3%;
+}
+
+/* .saleContainer {
+    background-color: rgb(150, 192, 206);
+} */
+
+.price-was {
+    color: wheat;
+    font-size: 1.2em;
+    text-decoration: line-through;
+}
+
+.product-oldPrice {
+    color: wheat;
+    font-size: 1.2em;
+    text-decoration: line-through;
+}
+
+.price-now {
+    color: greenyellow;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+.product-newPrice {
+    color: greenyellow;
+    font-size: 1.5em;
+}
+
+.product-price {
+    color: wheat;
+    font-size: 20px;
+    padding-top: 3%;
+}
+
+input[type=number] {
+    width: 70px;
+}
+
+.modal-content{
+    margin-top: 100px;
+    background-image:url('../imgs/add-product-modal.jpg');
+}
+
+@media only screen and (max-width: 940px) {
+    div.reg-form label{
+      margin-bottom: 5%;
+    }
+  }
+@media only screen and (max-width: 400px) {
+    div.reg-form label{
+      display: none;
+    }
+  }
+.input-height{
+    height: 50px;
+}
+

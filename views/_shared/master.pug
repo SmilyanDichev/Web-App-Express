@@ -1,16 +1,25 @@
-include ./nav
+include ./navigation
 doctype html
-html(lang='en')
+html(lang="en")
   head
     title FoodStore
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel="stylesheet", href='/static/styles/main.css')
-    link(rel="stylesheet", href='/static/styles/container.css')
-    link(rel="stylesheet", href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css')
-    link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-    link(rel='stylesheet', href='/static/styles/bootstrap.min.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/static/styles/container.css")
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css")
+    link(rel="stylesheet", href="/static/styles/bootstrap.min.css")
+    link(rel="stylesheet", href="/static/styles/main.css")
+    link(rel="icon", href="/static/imgs/favicon-pineapple.png")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="/static/script/validate.register.js")
+    script(src="/static/script/validate.login.js")
+    script(src="/static/script/ajax.validate.js")
+    script(src="/static/script/modal.js")
+    script(src="/static/script/cart.js")
+    script(src="/static/script/add.preview.product.js")
+    script(src="/static/script/ajax.cart.js")
+    script(src="/static/script/admin.products.js")
   body
+    +navigation()
     block content

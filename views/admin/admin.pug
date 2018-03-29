@@ -1,0 +1,8 @@
+extends ../_shared/master
+include ../_shared/navigation
+
+block content
+    +navigation()
+    h2.userGreeting
+        | Welcome, #{user.name}
+    block admincontent
