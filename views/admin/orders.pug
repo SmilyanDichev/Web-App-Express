@@ -14,7 +14,7 @@ block admincontent
                 th(scope='col') Updated
                 th(scope='col') Status
         tbody
-        each user in context.allOrders
+        each user in allOrders
             form(action='/admin/orders', method='post')
                 tr
                     th(scope='row') 
@@ -28,7 +28,7 @@ block admincontent
                     td #{user.updated}
                     td
                         select(name='statusId')
-                            each status in context.orderStats
+                            each status in orderStats
                                 if status.name === user.status
                                     option(selected='selected' name=status.name value=status.id) #{status.name}
                                 else

@@ -27,7 +27,22 @@ class AdminController {
     }
 
     async getAllProducts() {
-        return this.data.product.getAll();
+        const allProducts = await this.data.product.getAll();
+        const allCategories = await this.data.category.getAll();
+        const allPromotions = await this.data.promotion.getAll();
+        return {
+            allProducts,
+            allCategories,
+            allPromotions,
+        };
+    }
+
+    async createProduct(productObj) {
+        return this.data.product.create(productObj);
+    }
+
+    async updateProduct(productObj) {
+        return this.data.product.updateProduct(productObj);
     }
 }
 

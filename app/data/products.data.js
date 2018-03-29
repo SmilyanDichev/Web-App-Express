@@ -38,6 +38,20 @@ class ProductsData extends Data {
             ],
         });
     }
+
+    updateProduct(productObj) {
+        return this.Model.update({
+            name: productObj.name,
+            price: productObj.price,
+            pictureUrl: productObj.pictureUrl,
+            CategoryId: productObj.CategoryId,
+            PromotionId: productObj.PromotionId,
+        }, {
+            where: {
+                id: productObj.id,
+            },
+        }, );
+    }
 }
 
 module.exports = ProductsData;

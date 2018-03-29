@@ -70,7 +70,7 @@ navbar-toggle{
     margin-left: 3%;
 }
 
-.ordersAdmin {
+.ordersAdmin, .productsAdmin {
     display: none;
 }
 
@@ -136,6 +136,10 @@ navbar-toggle{
     color: wheat;
     font-size: 20px;
     padding-top: 3%;
+}
+
+input[type=number] {
+    width: 70px;
 }
 
 .modal-content{
