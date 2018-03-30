@@ -4,7 +4,7 @@ class AdminController {
     }
 
     async getOrdersByStatus() {
-        let allOrders = await this.data.order.getAll();
+        const allOrders = await this.data.order.getAll();
 
         allOrders.sort((a, b) => a.status < b.status);
 
