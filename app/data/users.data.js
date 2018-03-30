@@ -24,6 +24,7 @@ class UsersData extends Data {
         });
     }
 
+    // TO DO: REMOVE CREATE - USE THE ONE FROM GENERIC DATA
     create(formInfo) {
         const address = `${formInfo.city} ${formInfo.street} ${formInfo.apartment}`;
         const newUser = {
@@ -34,6 +35,21 @@ class UsersData extends Data {
             password: formInfo.password,
         };
         super.create(newUser);
+    }
+
+    getOrderInCartByUser(userId) {
+        return this.Model.findOne({
+            where: {
+                id: userId,
+            },
+            incude: [{
+                model: Order,
+                where: {
+                    orderStatusId: 3,
+                },
+                include: [Product, orderStatus],
+            }],
+        });
     }
 
     _isObjectValid(obj) {

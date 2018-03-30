@@ -12,9 +12,20 @@ const init = (app, data) => {
             if (req.user && !req.user.isAdmin) {
                 const email = req.user.email;
                 const context = await controller.getUserOrdersHistory(email);
-                console.log('-==-=-=-=-=-=-=-=-=-=-=--=');
-                console.log(context);
+                // await controller.getOrderFromLocalStorage();
                 res.render('user/user', context);
+            } else {
+                res.redirect('/'); // TO DO anon page
+            }
+        })
+        .post('/', async (req, res) => {
+            // NEEDS MORE WORK
+            if (req.user && !req.user.isAdmin) {
+                const order = req.body;
+                const userId = req.user.id;
+                await controller.updateOrCreateUserOrder(order, userId);
+                // console.log('-=-=-=-=-=-=-=-=-');
+                // console.log(order);
             } else {
                 res.redirect('/'); // TO DO anon page
             }
