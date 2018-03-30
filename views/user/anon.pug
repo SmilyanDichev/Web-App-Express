@@ -7,9 +7,11 @@ block content
     +login()
     +register()
     +chooseLoginSign()
+   
     .container
-        div
-            p(id="localOrder") Current order
-        div
-            a.btn.btn-default(href='#' data-toggle="modal" data-target="#signlogModal")
+        div(id='table')
+        
+        div(id='tableWrapper')
+
+            a.btn.btn-default(href='#' data-toggle='modal' data-target='#signlogModal')
                 span Confirm deliver

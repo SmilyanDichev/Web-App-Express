@@ -18,27 +18,14 @@ const init = (app, data) => {
             }
         })
         .get('/anon', (req, res) => {
-            const context = req.body;
-            // console.log("!!!!!!!!!!");
-            // console.log(req.body);
             res.render('user/anon');
-            // res.send('success');
-
-            // res.send('user/anon');
         })
-        // .get('/anon', (req, res) => {
-        //     const context = req.body;
-        //     console.log(context);
-        //     // res.render('user/anon', context);
-        //     // // res.send('user/anon');
-        // })
-
-        ;
-
+        .get('/table', (req, res) => {
+            // res.send('123');
+            res.render('user/templates/thead');
+        });
     app.use('/user', router);
 };
 module.exports = {
     init,
 };
-
-// !req.user.isAdmin

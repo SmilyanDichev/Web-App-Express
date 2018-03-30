@@ -1,0 +1,54 @@
+include ./navigation
++navigation()
+doctype html
+html(lang="en")
+  head
+    title FoodStore
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/static/styles/container.css")
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css")
+    link(rel="stylesheet", href="/static/styles/bootstrap.min.css")
+    link(rel="stylesheet", href="/static/styles/main.css")
+    link(rel="icon", href="/static/imgs/favicon-pineapple.png")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(src="/static/script/validate.register.js")
+    script(src="/static/script/validate.login.js")
+    script(src="/static/script/ajax.validate.js")
+    script(src="/static/script/modal.js")
+    script(src="/static/script/cart.js")
+    script(src="/static/script/ajax.cart.js")
+    script(src="/static/script/admin.products.js")
+    script(type="text/javascript" src="/static/script/show.anon.order.js")
+    body
+        div.container-fluid
+            div
+                p Current order
+            table.table.table-bordered
+                tbody
+                    tr.info
+                        td #
+                        td Status: 
+                        td Date: 
+                        td Adress: 
+                    each order, index in ordersByUser
+                        tr.active
+                            td #{index}
+                            td #{order.status}
+                            td #{order.date}
+                            td #{order.address}
+                        tr.info
+                            td(colspan="4") Includes Products
+                        tr.active
+                            td Name: 
+                            td Price: 
+                            td Category:
+                            td Picture:
+                            each product, indexProduct in order.products
+                                tr
+                                tbody
+                                    td #{product.name} 
+                                    td #{product.price} 
+                                    td #{product.category} 
+                                    td #{product.pictureUrl} 
