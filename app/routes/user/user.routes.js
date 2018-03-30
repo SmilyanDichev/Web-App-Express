@@ -12,16 +12,16 @@ const init = (app, data) => {
             if (req.user && !req.user.isAdmin) {
                 const email = req.user.email;
                 const context = await controller.getUserOrdersHistory(email);
-                console.log('-==-=-=-=-=-=-=-=-=-=-=--=');
-                console.log(context);
                 res.render('user/user', context);
             } else {
-                res.redirect('/'); // TO DO anon page
+                res.redirect('user/anon');
             }
+        })
+        .get('anon', (req, res) => {
+            res.render('user/anon');
         });
     app.use('/user', router);
 };
-
 module.exports = {
     init,
 };

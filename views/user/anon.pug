@@ -1,0 +1,15 @@
+extends ../_shared/master
+include ../_shared/login
+include ../_shared/register
+include ../_shared/choose
+
+block content
+    +login()
+    +register()
+    +chooseLoginSign()
+    .container
+        div
+            p(id="localOrder") Current order
+        div
+            a.btn.btn-default(href='#' data-toggle="modal" data-target="#signlogModal")
+                span Confirm deliver
