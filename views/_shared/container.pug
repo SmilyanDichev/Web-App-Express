@@ -2,9 +2,9 @@ mixin container(products)
     div.container
         div.row
         each product in products
-            div.col-sm-4.product-wrapper
-                if product.saleSign
-                    div.inner-product-wrapper.container-fluid.saleContainer
+            div.col-xs-6.col-sm-4.col-md-3.product-wrapper
+                div.inner-product-wrapper.container-fluid
+                    if product.saleSign
                         div.row
                             h2.product-name-sale.product-name.col-xs-12=product.name
                         div.row
@@ -12,21 +12,19 @@ mixin container(products)
                             div.row
                                 p.product-sale.col-xs-12=product.saleSign
                             div.row
-                                p.price-was.col-xs-5.col-xs-offset-1 Was:
-                                p.product-oldPrice.col-xs-5.col-xs-offset-1 #{product.oldPrice}
-                                p.price-now.col-xs-5.col-xs-offset-1 NOW:
-                                p.product-newPrice.col-xs-5.col-xs-offset-1 #{product.newPrice}
-                        form.row()
-                            a.btn.btn-default.col-xs-6.col-xs-offset-1(href='#', role='button') Add to basket
-                            input.col-xs-3.col-xs-offset-1(type='number' min='1' max='10' value="1")
-                else
-                    div.inner-product-wrapper.container-fluid
+                                p.price-was.col-xs-3.col-xs-offset-1 Was:
+                                p.product-oldPrice.col-xs-3.col-xs-offset-4 #{product.oldPrice}
+                            div.row
+                                p.price-now.col-xs-3.col-xs-offset-1 NOW:
+                                p.product-price.product-newPrice.col-xs-3.col-xs-offset-4 #{product.newPrice}
+                    else
                         div.row
                             h2.product-name.col-xs-12=product.name
                         div.row
                             img.product-image.col-xs-12(src=product.pictureUrl alt=product.name)
                             div.row
-                                p.product-price.col-xs-5.col-xs-offset-1 Price: #{product.oldPrice}
-                        form.row()
-                            a.btn.btn-default.col-xs-6.col-xs-offset-1(href='#', role='button') Add to basket
-                            input.col-xs-3.col-xs-offset-1(type='number' min='1' max='10' value="1")
+                                p.product-price-sign.col-xs-3.col-xs-offset-1 Price:
+                                p.product-price.col-xs-3.col-xs-offset-4 #{product.oldPrice}
+                    form.row()
+                        a.add-to-basket.btn.btn-default.col-xs-6.col-xs-offset-1(data-id=product.id role='button') Add to basket
+                        input.product-quantity.col-xs-3.col-xs-offset-1(type='number' min='1' max='10' value="1")
