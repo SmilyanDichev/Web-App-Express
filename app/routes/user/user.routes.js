@@ -15,11 +15,8 @@ const init = (app, data) => {
                 // await controller.getOrderFromLocalStorage();
                 res.render('user/user', context);
             } else {
-                res.redirect('user/anon');
+                res.render('user/anon');
             }
-        })
-        .get('/anon', (req, res) => {
-            res.render('user/anon');
         })
         .post('/', async (req, res) => {
             // NEEDS MORE WORK

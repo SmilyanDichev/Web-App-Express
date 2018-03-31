@@ -8,8 +8,10 @@ class UserController {
         return this.data.user.getById(id);
     }
     async getUserOrdersHistory(email) {
-        let ordersByUser = await this.data.order.getUserOrders(email);
-        ordersByUser = ordersByUser.map((user) => {
+        //  let ordersByUser = await this.data.order.getUserOrders(email);
+        let ordersByUser = await this._getNonActiveOrders(email);
+        const sorted = this._sortByStatus(ordersByUser);
+        ordersByUser = sorted.map((user) => {
             let orderTime = user.createdAt.toString();
             let updateTime = user.updatedAt.toString();
             orderTime = orderTime.split('GMT');
@@ -17,10 +19,10 @@ class UserController {
             // DELET THIS
             if (user.Products.length === 0) {
                 user.Products.push({
-                    name: ' ',
-                    price: ' ',
-                    category: ' ',
-                    pictureUrl: ' ',
+                    name: 'no name',
+                    price: '0',
+                    category: 'none',
+                    pictureUrl: 'what picture?',
                 });
             }
             return {
@@ -45,8 +47,8 @@ class UserController {
         // NEEDS MORE WORK
         const productIds = this._getProductIds(order.storage);
         const activeOrder = await this._activeUserOrder(userId);
-        console.log(productIds);
-        console.log(activeOrder);
+        // console.log(productIds);
+        // console.log(activeOrder);
         if (activeOrder) {
             console.log('ORDER WILL BE UPDATED');
         } else {
@@ -61,7 +63,6 @@ class UserController {
             // await currentOrder.setProducts(productIds);
         }
     }
-
     async _activeUserOrder(userId) {
         const user = await this.data.user.getById(userId);
         const userOrders = await user.getOrders();
@@ -73,7 +74,19 @@ class UserController {
         });
         return activeOrder;
     }
-
+    async _getNonActiveOrders(email) {
+        const userOrders = await this.data.order.getUserOrders(email);
+        const nonAcvtiveOrders = [];
+        console.log('_getNonActiveOrders');
+        console.log(nonAcvtiveOrders);
+        userOrders.forEach((order) => {
+            if (order.orderStatusId !== 3) {
+                nonAcvtiveOrders.push(order);
+            }
+            console.log(nonAcvtiveOrders);
+        });
+        return nonAcvtiveOrders;
+    }
     _getProductIds(arr) {
         const productIds = arr.map((product) => {
             let quantityArr = Array.from({
@@ -85,6 +98,15 @@ class UserController {
             return quantityArr;
         });
         return lodash.flatten(productIds);
+    }
+    _sortByStatus(arrayToSort) {
+        const inProgress = arrayToSort.filter((el) => {
+            return el.orderStatus.type === 'In progress';
+        });
+        const Delivered = arrayToSort.filter((el) => {
+            return el.orderStatus.type === 'Delivered';
+        });
+        return [...inProgress, ...Delivered];
     }
 }
 

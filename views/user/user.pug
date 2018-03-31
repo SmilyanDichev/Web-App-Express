@@ -4,34 +4,35 @@ include ../_shared/register
 include ../_shared/choose
 
 block content
-        div.container-fluid
-            div
-                p Current order
-            table.table.table-bordered
-                tbody
-                    tr.info
-                        td #
-                        td Status: 
-                        td Date: 
-                        td Adress: 
-                    each order, index in ordersByUser
-                        tr.active
-                            td #{index}
-                            td #{order.status}
-                            td #{order.date}
-                            td #{order.address}
+        div.container
+            div.text-center 
+                h1 Current Order
+            div.col-xs-8.col-xs-offset-2(id='tableWrapper')
+            div(id='button').col-xs-8.col-xs-offset-2
+                a.col-xs-12.btn.btn-default(href='#' data-toggle='modal' data-target='#signlogModal')
+                    span Confirm delivery!
+            div.col-xs-8.col-xs-offset-2.text-center 
+                h4 Order History
+            div.col-xs-8.col-xs-offset-2
+                table.table.table-bordered
+                    tbody
                         tr.info
-                            td(colspan="4") Includes Products
-                        tr.active
-                            td Name: 
-                            td Price: 
-                            td Category:
-                            td Picture:
-                            each product, indexProduct in order.products
-                                tr
-                                tbody
-                                    td #{product.name} 
-                                    td #{product.price} 
-                                    td #{product.category} 
-                                    td #{product.pictureUrl} 
+                            td #
+                            td Status: 
+                            td Date: 
+                            td Adress: 
+                        each order, index in ordersByUser
+                            tr.active
+                                td #{index}
+                                td #{order.status}
+                                td #{order.date}
+                                td #{order.address}
+                            tr.info
+                                td.text-center(colspan="4") Products
+                                    each product, indexProduct in order.products
+                                        p
+                                            |  (#{indexProduct})
+                                            |  #{product.name} 
+                                            |  #{product.price}
+                                            |  #{product.pictureUrl}
 
