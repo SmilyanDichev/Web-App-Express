@@ -19,13 +19,10 @@ const init = (app, data) => {
             }
         })
         .post('/', async (req, res) => {
-            // NEEDS MORE WORK
             if (req.user && !req.user.isAdmin) {
                 const order = req.body;
                 const userId = req.user.id;
                 await controller.updateOrCreateUserOrder(order, userId);
-                // console.log('-=-=-=-=-=-=-=-=-');
-                // console.log(order);
             } else {
                 res.redirect('/'); // TO DO anon page
             }

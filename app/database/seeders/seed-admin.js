@@ -6,7 +6,7 @@ module.exports = {
             updatedAt: new Date(),
             address: 'whatever',
             email: 'admin1@foodstore.com',
-            password: 'whateverAdmin1',
+            password: '123',
             isAdmin: 1,
         }, {
             name: 'admin2',
@@ -14,7 +14,7 @@ module.exports = {
             updatedAt: new Date(),
             address: 'whatever2',
             email: 'admin2@foodstore.com',
-            password: 'whateverAdmin2',
+            password: '123',
             isAdmin: 1,
         }], {});
     },
