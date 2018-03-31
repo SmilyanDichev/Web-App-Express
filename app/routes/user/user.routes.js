@@ -9,13 +9,13 @@ const init = (app, data) => {
     const controller = new Controller(data);
     router
         .get('/', async (req, res) => {
-            if (req.user && !req.user.isAdmin) {
+            if (req.user) {
                 const email = req.user.email;
                 const context = await controller.getUserOrdersHistory(email);
                 // await controller.getOrderFromLocalStorage();
                 res.render('user/user', context);
             } else {
-                res.redirect('/'); // TO DO anon page
+                res.render('user/anon');
             }
         })
         .post('/', async (req, res) => {
@@ -24,7 +24,7 @@ const init = (app, data) => {
                 const userId = req.user.id;
                 await controller.updateOrCreateUserOrder(order, userId);
             } else {
-                res.redirect('/'); // TO DO anon page
+                res.redirect('/');
             }
         });
     app.use('/user', router);

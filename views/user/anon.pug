@@ -1,0 +1,17 @@
+extends ../_shared/master
+include ../_shared/login
+include ../_shared/register
+include ../_shared/choose
+
+block content
+    +login()
+    +register()
+    +chooseLoginSign()
+   
+    div.container
+        div.text-center 
+            h1  Current Order
+        div.col-xs-8.col-xs-offset-2(id='tableWrapper')
+        div(id='button').col-xs-8.col-xs-offset-2
+            a.col-xs-12.btn.btn-default(href='#' data-toggle='modal' data-target='#signlogModal')
+                span Confirm delivery!
