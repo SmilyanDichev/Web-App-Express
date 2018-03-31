@@ -12,6 +12,7 @@ const init = (app, data) => {
             if (req.user) {
                 const email = req.user.email;
                 const context = await controller.getUserOrdersHistory(email);
+                // await controller.getOrderFromLocalStorage();
                 res.render('user/user', context);
             } else {
                 res.redirect('user/anon');
@@ -20,12 +21,19 @@ const init = (app, data) => {
         .get('/anon', (req, res) => {
             res.render('user/anon');
         })
-        .get('/table', (req, res) => {
-            // res.send('123');
-            res.render('user/templates/thead');
+        .post('/', async (req, res) => {
+            // NEEDS MORE WORK
+            if (req.user && !req.user.isAdmin) {
+                const order = req.body;
+                const userId = req.user.id;
+                await controller.updateOrCreateUserOrder(order, userId);
+            } else {
+                res.redirect('/'); 
+            }
         });
     app.use('/user', router);
 };
+
 module.exports = {
     init,
 };

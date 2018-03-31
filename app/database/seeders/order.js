@@ -3,18 +3,18 @@ module.exports = {
         return queryInterface.bulkInsert('Orders', [{
                 createdAt: new Date(),
                 updatedAt: new Date(),
-                UserId: 3,
+                UserId: 2,
                 orderStatusId: 1,
             }, {
                 createdAt: new Date(),
                 updatedAt: new Date(),
-                UserId: 3,
+                UserId: 2,
                 orderStatusId: 2,
             },
             {
                 createdAt: new Date(),
                 updatedAt: new Date(),
-                UserId: 3,
+                UserId: 2,
                 orderStatusId: 3,
             },
         ], {});

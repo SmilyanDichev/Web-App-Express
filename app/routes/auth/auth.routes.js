@@ -24,7 +24,7 @@ const init = (app, data) => {
                     return res.status(400).json(err);
                 }
                 if (!user) {
-                    return res.status(300).status(300).json(user);
+                    return res.status(300).json(user);
                 }
                 req.logIn(user, (er) => {
                     if (er) {
