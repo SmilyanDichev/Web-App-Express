@@ -18,6 +18,11 @@ const init = (app, data) => {
                 res.render('user/anon');
             }
         })
+        .post('/confirm', async (req, res) => {
+            const userId=req.user.id;
+           await controller.confirmInCartOrder(userId);
+            res.send(200);
+        })
         .post('/', async (req, res) => {
             if (req.user && !req.user.isAdmin) {
                 const order = req.body;

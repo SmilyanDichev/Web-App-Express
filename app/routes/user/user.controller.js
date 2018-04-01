@@ -41,6 +41,11 @@ class UserController {
         return;
     }
 
+    async confirmInCartOrder(userId) {
+        const activeOrder = await this._activeUserOrder(userId);
+        return await this.data.order.updateStatus(activeOrder, 2);
+    }
+
     async updateOrCreateUserOrder(order, userId) {
         const productIdQty = this._getProductsAndQuantities(order.storage);
         const activeOrder = await this._activeUserOrder(userId);
