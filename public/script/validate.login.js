@@ -32,39 +32,21 @@ $(function() {
         return false;
     };
 
-    let isEmail = false;
-    let isPass = false;
-
     $email.focusout(function () {
         if (validateEmail($email.val())) {
             $emailError.text("");
-            isEmail = true;
         } else if ($email.val() === "") {
             $emailError.text("Email required!");
-            isEmail = false;
         } else {
             $emailError.text("Invalid email!");
-            isEmail = false;
         }
     });
     $password.focusout(function () {
         if ($password.val() !== "") {
             $passwordError.text("");
-            isPass = true;
         } else {
             $passwordError.text("Password required!");
-            isPass = false;
-        }
-    });
-
-    const isValidLogin = function() {
-        if (isEmail && isPass) {
-            return true;
         }
         return false;
-    };
-
-    module.exports = {
-        isValidLogin
-    };
+    });
 });
