@@ -11,7 +11,7 @@ $(function () {
         const currentStoredObject = localStorage.getItem(localStorageSelector);
         const currentStoredObjectJSON = JSON.parse(currentStoredObject);
 
-        let currentStorage = currentStoredObjectJSON.storage;
+        const currentStorage = currentStoredObjectJSON.storage;
         let currentCounter = currentStoredObjectJSON.counter;
         const newStorage = currentStorage.filter(checkCounter);
         const clientOrders = {
@@ -45,7 +45,7 @@ $(function () {
             const td1 = el.product;
             const td2 = el.quantity;
             const td3 = el.price;
-            const td4 = (+el.quantity * +el.price);
+            const td4 = (+el.quantity * +el.price).toFixed(2);
             const td5 = $("<button>").addClass("deleteBtn btn btn-danger").text("X");
             append(td1, td2, td3, td4, td5, tBody);
         });
