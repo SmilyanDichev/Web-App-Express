@@ -53,9 +53,7 @@ navbar-toggle{
 .login-form div.modal-content{
     margin-top: 70%;
 }
-.errorSpan
-{
-    display: none;
+.formError{
     color: red;
 }
 .regFormInput {
@@ -154,18 +152,37 @@ input[type=number] {
     height: 150px;
     object-fit: contain;
 }
+.reg-form h2{
+    margin-left: 39%;
+}
 
-@media only screen and (max-width: 940px) {
+/* .reg-form .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+    float: none;
+} */
+/* @media only screen and (max-width: 940px) {
     div.reg-form label{
       margin-bottom: 5%;
+    }
+  } */
+  @media only screen and (max-width: 500px) {
+    .reg-form h2{
+        margin-left: 33%;
     }
   }
 @media only screen and (max-width: 400px) {
     div.reg-form label{
       display: none;
     }
+    .reg-form div input{
+        width: 100%;
+    }
   }
-.input-height{
-    height: 50px;
+  @media only screen and (max-width: 360px) {
+    .reg-form h2{
+        margin-left: 30%;
+    }
+  }
+  .input-height {
+    height: 71px;
 }
 

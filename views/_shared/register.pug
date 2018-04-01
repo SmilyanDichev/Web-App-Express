@@ -4,44 +4,43 @@ mixin register()
             .modal-content.container-fluid
                 form(action="/register" method="post")
                     .row.modal-header
-                        h2.col-xs-4.col-xs-offset-4 Register
+                        h2 Register
                         span.col-xs-4.col-xs-offset-4(id="signInFormUserValidationError") &nbsp 
                     .modal-body.input-height
-                        .row
+                        .row.input-height 
                             label.col-xs-3 Name:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="name", id="regFormName", placeholder="Your name")
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormNameError") Name required!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormNameError")
                     .modal-body.input-height
-                        .row
+                        .row.input-height
                             label.col-xs-3 Email:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="email", name="email", id="regFormEmail", placeholder="your@email.com")
-                            span.col-xs-7.col-xs-offset-2(id="regFormEmailError", class="errorSpan") Email required!
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormInvalidEmailError") Invalid Email!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormEmailError", class="errorSpan")
                     .modal-body.input-height
-                        .row
+                        .row.input-height
                             label.col-xs-3 Password:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="password", name="password", id="regFormPassword", placeholder="Password")
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormPasswordError") Password required!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormPasswordError")
                     .modal-body.input-height
-                        .row
+                        .row.input-height
                             label.col-xs-3 Confirm Password:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="password", name="password2", id="regFormPasswordConfirm", placeholder="Password")
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormPasswordConfirmError") Passwords must match!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormPasswordConfirmError")
                     .modal-body.input-height
-                        .row
+                        .row.input-height
                             label.col-xs-3 City:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="city", id="regFormLine1", placeholder="City")
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormLine1Error") Required!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormLine1Error")
                     .modal-body.input-height
-                        .row
+                        .row.input-height
                             label.col-xs-3 Street:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="street", id="regFormLine2", placeholder="Street")
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormLine2Error") Required!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormLine2Error")
                     .modal-body.input-height
-                        .row
+                        .row.input-height
                             label.col-xs-3 Apartment:
                             input.regFormInput.col-xs-7.col-xs-offset-2(type="text", name="apartment", id="regFormLine3", placeholder="Apartment")
-                            span.errorSpan.col-xs-7.col-xs-offset-2(id="regFormLine3Error") Required!
+                            .formError.col-xs-7.col-xs-offset-3(id="regFormLine3Error")
                     .modal-footer
                         .row
                             button.btn.btn-default.col-xs-4.col-xs-offset-2(type="submit", id="signinFormSubmit") Submit
