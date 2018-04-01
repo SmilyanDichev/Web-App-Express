@@ -2,8 +2,9 @@ body {
     background-color: rgb(254, 246, 235) !important;
     padding-top: 70px;
 }
-navbar-toggle{
-    height:0px !important;
+
+navbar-toggle {
+    height: 0px !important;
 }
 
 .nav {
@@ -15,7 +16,7 @@ navbar-toggle{
     color: rgb(255, 255, 255) !important;
 }
 
-.navbar-toggle{
+.navbar-toggle {
     padding: 0px;
     border: none !important;
 }
@@ -56,9 +57,8 @@ navbar-toggle{
     padding-right: 0.5em;
 }
 
-.glyphicon{
+.glyphicon {
     color: greenyellow !important;
-
 }
 
 .loggedInUser {
@@ -66,18 +66,21 @@ navbar-toggle{
     color: black;
     font-weight: bold;
 }
-.reg-form div input{
+
+.reg-form div input {
     width: 12em;
 }
-.confirm-deliver-form, .modal-content,
-.login-form div.modal-content{
+
+.confirm-deliver-form,
+.modal-content,
+.login-form div.modal-content {
     margin-top: 70%;
 }
-.errorSpan
-{
-    display: none;
+
+.formError {
     color: red;
 }
+
 .regFormInput {
     margin: 1px;
 }
@@ -90,7 +93,8 @@ navbar-toggle{
     margin-left: 3%;
 }
 
-.ordersAdmin, .productsAdmin {
+.ordersAdmin,
+.productsAdmin {
     display: none;
 }
 
@@ -117,6 +121,7 @@ navbar-toggle{
     color: greenyellow;
     font-weight: bold;
 }
+
 .product-sale {
     color: greenyellow;
     font-weight: bold;
@@ -125,13 +130,15 @@ navbar-toggle{
     padding-top: 3%;
 }
 
-.price-was, .product-oldPrice {
+.price-was,
+.product-oldPrice {
     color: wheat;
     font-size: 1.2em;
     text-decoration: line-through;
 }
 
-.product-price, .product-price-sign {
+.product-price,
+.product-price-sign {
     color: wheat;
     font-size: 1.4em;
     padding-top: 3%;
@@ -153,19 +160,19 @@ navbar-toggle{
     margin-top: 1%;
 }
 
-
 input[type=number] {
     width: 70px;
 }
 
-.modal-content{
+.modal-content {
     margin-top: 100px;
-    background-image:url('../imgs/add-product-modal.jpg');
+    background-image: url('../imgs/add-product-modal.jpg');
 }
 
 .inner-product-wrapper {
     max-height: 410px;
 }
+
 .product-wrapper {
     max-height: 500px;
 }
@@ -175,17 +182,37 @@ input[type=number] {
     object-fit: contain;
 }
 
+.reg-form h2 {
+    margin-left: 39%;
+}
+
 /* @media only screen and (max-width: 940px) {
     div.reg-form label{
       margin-bottom: 5%;
     }
-  }
-@media only screen and (max-width: 400px) {
-    div.reg-form label{
-      display: none;
-    }
   } */
-.input-height{
-    height: 50px;
+
+@media only screen and (max-width: 500px) {
+    .reg-form h2 {
+        margin-left: 33%;
+    }
 }
 
+@media only screen and (max-width: 400px) {
+    div.reg-form label {
+        display: none;
+    }
+    .reg-form div input {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .reg-form h2 {
+        margin-left: 30%;
+    }
+}
+
+.input-height {
+    height: 71px;
+}

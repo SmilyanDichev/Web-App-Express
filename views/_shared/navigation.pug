@@ -39,10 +39,10 @@ mixin navigation()
                   |  Logout
             else
               li
-                a(href='#' data-toggle="modal" data-target="#regModal")
+                a(href='#' data-toggle="modal" data-target="#regModal", id="signUpAnchor")
                   span.glyphicon.glyphicon-user
                   |  Sign Up
               li
-                a(href='#' data-toggle="modal" data-target="#loginModal")
+                a(href='#' data-toggle="modal" data-target="#loginModal", id="loginAnchor")
                   span.glyphicon.glyphicon-log-in
                   |  Login
