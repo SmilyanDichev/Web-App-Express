@@ -36,6 +36,26 @@ navbar-toggle{
     color: greenyellow !important;
 }
 
+.navbar-collapse {
+    max-height: fit-content !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.navbar-form {
+    border: 0;
+    margin-left: 0;
+}
+
+.menuButton {
+    background-color: rgb(82, 85, 100);
+    border: 1px solid greenyellow;
+}
+
+.shoppingCart {
+    padding-right: 0.5em;
+}
+
 .glyphicon{
     color: greenyellow !important;
 
@@ -155,7 +175,7 @@ input[type=number] {
     object-fit: contain;
 }
 
-@media only screen and (max-width: 940px) {
+/* @media only screen and (max-width: 940px) {
     div.reg-form label{
       margin-bottom: 5%;
     }
@@ -164,7 +184,7 @@ input[type=number] {
     div.reg-form label{
       display: none;
     }
-  }
+  } */
 .input-height{
     height: 50px;
 }

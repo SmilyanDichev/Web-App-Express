@@ -36,5 +36,11 @@
     "migrate": "cd app/database && sequelize db:migrate",
     "start": "node ./app/server.js",
     "test": "./node_modules/.bin/nyc --all ./node_modules/.bin/mocha ./tests/**/*.js"
+  },
+  "nyc": {
+    "include": [
+        "**/*controller.js",
+        "**/*data.js"
+    ]
   }
 }

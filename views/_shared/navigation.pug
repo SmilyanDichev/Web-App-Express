@@ -5,15 +5,15 @@ mixin navigation()
         a.navbar-brand(href='/') Food Store Express
         //- img.navbar-left(src="/static/imgs/nav-logo.png")
         div.navbar-toggle
-            a(href='/user-anon')
+            a.shoppingCart(href='/user-anon')
               span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
                 span.badge.items-basket 0
-            button.btn.btn-default(type='button', data-toggle='collapse', data-target='.collapse')
+            button.menuButton.btn.btn-default(type='button', data-toggle='collapse', data-target='.collapse')
               span.glyphicon.glyphicon-align-justify(aria-hidden="true")
       .collapse.navbar-collapse.container
           ul.nav.navbar-nav
             li.active
-              a(href='/') Home
+              a(href='/') PROMO
             each button in navButtons
               li
                 a(href=button.href) #{button.text}
