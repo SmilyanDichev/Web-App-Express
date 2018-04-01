@@ -10,10 +10,12 @@ mixin login()
                         .row
                             label.col-xs-3 Email:
                             input.col-xs-7.col-xs-offset-2(id ='loginEmail', type='email', name='email')
+                        .row.formError.col-xs-9.col-xs-offset-4#loginFormMailError
                     .modal-body
                         .row
                             label.col-xs-3 Password:
                             input.col-xs-7.col-xs-offset-2(id='loginPassword', type='password', name='password')
+                        .row.formError.col-xs-9.col-xs-offset-4#loginFormPasswordError
                     .modal-footer
                         .row
                             button.col-xs-4.col-xs-offset-2(type="submit", class="btn btn-default", id="loginFormSubmit") Login

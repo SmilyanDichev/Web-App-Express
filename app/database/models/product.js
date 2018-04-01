@@ -23,14 +23,15 @@ module.exports = (sequelize, DataTypes) => {
       Category,
       Promotion,
       Order,
+      ordersProduct,
     } = models;
 
     Product.belongsToMany(Order, {
-      through: 'products_orders',
+      through: ordersProduct,
     });
 
     Order.belongsToMany(Product, {
-      through: 'products_orders',
+      through: ordersProduct,
     });
 
     Category.hasMany(Product, {

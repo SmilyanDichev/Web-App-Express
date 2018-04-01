@@ -39,6 +39,20 @@ class OrdersData extends Data {
             ],
         });
     }
+
+    addProductsToOrder(currentOrder, product) {
+        return currentOrder.addProduct(+product.id, {
+            through: {
+                quantity: +product.qty,
+            },
+        });
+    }
+
+    updateProductsInOrder(currentOrder, productsInOrder) {
+        return currentOrder.setProducts(productsInOrder, {
+            through: productsInOrder.ordersProduct,
+        });
+    }
 }
 
 module.exports = OrdersData;

@@ -1,5 +1,3 @@
-const lodash = require('lodash');
-
 class UserController {
     constructor(data) {
         this.data = data;
@@ -8,7 +6,6 @@ class UserController {
         return this.data.user.getById(id);
     }
     async getUserOrdersHistory(email) {
-        //  let ordersByUser = await this.data.order.getUserOrders(email);
         let ordersByUser = await this._getNonActiveOrders(email);
         const sorted = this._sortByStatus(ordersByUser);
         ordersByUser = sorted.map((user) => {
@@ -39,66 +36,79 @@ class UserController {
             ordersByUser,
         };
     }
+    // TO DO: FINISH confirmOrder
     async confirmOrder() {
         return;
     }
 
     async updateOrCreateUserOrder(order, userId) {
-        // NEEDS MORE WORK
-        const productIds = this._getProductIds(order.storage);
+        const productIdQty = this._getProductsAndQuantities(order.storage);
         const activeOrder = await this._activeUserOrder(userId);
-        // console.log(productIds);
-        // console.log(activeOrder);
         if (activeOrder) {
-            console.log('ORDER WILL BE UPDATED');
+            const currentOrder = await this.data.order.getById(activeOrder);
+            const productsInOrder = await this._setQtyToProducts(productIdQty);
+            await this.data.order
+                .updateProductsInOrder(currentOrder, productsInOrder);
         } else {
-            console.log('ORDER WILL BE CREATED');
             const orderObj = {
                 UserId: userId,
                 orderStatusId: 3,
             };
-            console.log(orderObj);
             const currentOrder = await this.data.order.create(orderObj);
-            await currentOrder.setProducts(productIds);
-            // await currentOrder.setProducts(productIds);
+            await Promise.all(productIdQty.map(async (product) => {
+                return this.data.order
+                    .addProductsToOrder(currentOrder, product);
+            }));
         }
     }
     async _activeUserOrder(userId) {
         const user = await this.data.user.getById(userId);
         const userOrders = await user.getOrders();
-        let activeOrder = false;
+        let activeOrder = 0;
         userOrders.forEach((order) => {
             if (order.orderStatusId === 3) {
-                activeOrder = true;
+                activeOrder = order.id;
             }
         });
         return activeOrder;
     }
+
+    async _setQtyToProducts(productQty) {
+        const productsInOrder = await Promise.all(productQty
+            .map(async (prod) => this.data.product.getById(+prod.id)));
+        productsInOrder.forEach((prod) => {
+            productQty.forEach((prodWithQty) => {
+                if (prodWithQty.id === prod.id) {
+                    prod.ordersProduct = {
+                        quantity: prodWithQty.qty,
+                    };
+                }
+            });
+        });
+        return productsInOrder;
+    }
+
     async _getNonActiveOrders(email) {
         const userOrders = await this.data.order.getUserOrders(email);
         const nonAcvtiveOrders = [];
-        console.log('_getNonActiveOrders');
-        console.log(nonAcvtiveOrders);
         userOrders.forEach((order) => {
             if (order.orderStatusId !== 3) {
                 nonAcvtiveOrders.push(order);
             }
-            console.log(nonAcvtiveOrders);
         });
         return nonAcvtiveOrders;
     }
-    _getProductIds(arr) {
+
+    _getProductsAndQuantities(arr) {
         const productIds = arr.map((product) => {
-            let quantityArr = Array.from({
-                length: +product.quantity,
-            });
-            quantityArr = quantityArr.map((id) => {
-                return +product.id;
-            });
-            return quantityArr;
+            return {
+                id: +product.id,
+                qty: +product.quantity,
+            };
         });
-        return lodash.flatten(productIds);
+        return productIds;
     }
+
     _sortByStatus(arrayToSort) {
         const inProgress = arrayToSort.filter((el) => {
             return el.orderStatus.type === 'In progress';

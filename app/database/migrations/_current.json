@@ -65,6 +65,44 @@
             },
             "indexes": []
         },
+        "ordersProducts": {
+            "tableName": "ordersProducts",
+            "schema": {
+                "quantity": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "seqType": "Sequelize.DATE"
+                },
+                "ProductId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Products",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "OrderId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "Orders",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
         "orderStatuses": {
             "tableName": "orderStatuses",
             "schema": {
@@ -86,28 +124,6 @@
                 "updatedAt": {
                     "allowNull": false,
                     "seqType": "Sequelize.DATE"
-                }
-            },
-            "indexes": []
-        },
-        "ordersProducts": {
-            "tableName": "ordersProducts",
-            "schema": {
-                "createdAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "ProductId": {
-                    "primaryKey": true,
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "OrderId": {
-                    "primaryKey": true,
-                    "seqType": "Sequelize.INTEGER"
                 }
             },
             "indexes": []
@@ -241,5 +257,5 @@
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 2
 }

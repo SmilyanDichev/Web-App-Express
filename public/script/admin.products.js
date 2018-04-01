@@ -8,6 +8,7 @@ $(function () {
         $("#preview").attr("src", $("#product-img-url").val());
     });
 
+    // NEEDS FIX - WORKS ONLY WITH FIRST IMAGE - DUPLICATING IDs
     $("#editPictureUrl").on("input", function () {
         $("#miniPicture").attr("src", $("#editPictureUrl").val());
     });
