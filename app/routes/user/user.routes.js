@@ -26,8 +26,13 @@ const init = (app, data) => {
             }
             const userId = req.user.id;
             const inCart = await controller.getActiveOrder(userId);
-
-            res.status(200).json(inCart);
+            if (inCart) {
+                res.status(200).json(inCart);
+            } else {
+                res.status(404).json({
+                    error: 'not found',
+                });
+            }
         })
         .post('/confirm', async (req, res) => {
             const userId = req.user.id;

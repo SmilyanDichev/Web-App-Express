@@ -66,7 +66,10 @@ class UserController {
         const user = await this.getUserById(userId);
         const email = user.email;
         const activeOrderContent = await this._getActiveOrders(email);
-        return activeOrderContent.Products;
+        if (activeOrderContent) {
+            return activeOrderContent.Products;
+        }
+        return null;
     }
 
     async _activeUserOrder(userId) {
