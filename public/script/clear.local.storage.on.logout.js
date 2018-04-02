@@ -8,10 +8,10 @@ $(function () {
                         url: "user",
                         data: clientOrders,
                         success: function (response) {
-                            $.get("/logout");
                         }
                     });
-                   localStorage.clear();
+                    localStorage.clear();
+                    location.replace("/logout");
                 }
             });
 });
