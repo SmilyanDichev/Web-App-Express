@@ -83,13 +83,7 @@ class UserController {
         });
         return activeOrder;
     }
-    // async _setQtyToProductsArray() {
-    //     const productsQty = [];
-    //     products.forEach((prod) => {
-    //         productsQty.push(+prod.ordersProduct.quantity);
-    //     });
-    //     return 
-    // }
+
     async _setQtyToProducts(productQty) {
         const productsInOrder = await Promise.all(productQty
             .map(async (prod) => this.data.product.getById(+prod.id)));

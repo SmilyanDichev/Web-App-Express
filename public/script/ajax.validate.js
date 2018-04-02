@@ -40,8 +40,6 @@ const addCurentToStorage = (productsDB) => {
     const localStorageSelector = "clientOrders";
     const currentStoredObject = localStorage.getItem(localStorageSelector);
     const currentStoredObjectJSON = JSON.parse(currentStoredObject);
-    console.log("current ");
-    console.log(currentStoredObjectJSON);
     const currentStorage = currentStoredObjectJSON.storage;
     const itemsCart = $(".items-basket").toArray();
     let counter = setCounterStorage(currentStoredObject, localStorageSelector);
@@ -79,7 +77,6 @@ $(function () {
                 password: $("#loginPassword").val()
             },
             success: function () {
-                console.log("2nd ajax");
                 $.ajax({
                     type: "GET",
                     url: "user/cart",

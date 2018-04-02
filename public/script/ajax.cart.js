@@ -8,11 +8,7 @@ $(function () {
             $.ajax({
                 method: "POST",
                 url: "user",
-                data: clientOrders,
-                success: function (response) {
-                    console.log(response);
-                }
-
+                data: clientOrders
             });
         });
     });

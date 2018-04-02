@@ -19,7 +19,7 @@ const init = (app, data) => {
         })
         .get('/cart', async (req, res) => {
             if (req.user.isAdmin) {
-                const msg ={
+                const msg = {
                     msg: 'Admin',
                 };
                 res.status(404).json(msg);
@@ -27,7 +27,7 @@ const init = (app, data) => {
             const userId = req.user.id;
             const inCart = await controller.getActiveOrder(userId);
 
-                res.status(200).json(inCart);
+            res.status(200).json(inCart);
         })
         .post('/confirm', async (req, res) => {
             const userId = req.user.id;
@@ -39,6 +39,9 @@ const init = (app, data) => {
                 const order = req.body;
                 const userId = req.user.id;
                 await controller.updateOrCreateUserOrder(order, userId);
+                res.status(200).json({
+                    msg: 'yes',
+                });
             } else {
                 res.redirect('/');
             }
