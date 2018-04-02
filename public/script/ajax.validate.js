@@ -86,7 +86,6 @@ $(function () {
                     dataType: "json",
                     success: function (responce) {
                         addCurentToStorage(responce);
-                        
                     }
                 });
                 $("#loginModal").modal("hide");
