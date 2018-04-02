@@ -1,6 +1,7 @@
 body {
     background-color: rgb(254, 246, 235) !important;
     padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 navbar-toggle {
