@@ -34,7 +34,7 @@ navbar-toggle {
 }
 
 .navbar-brand {
-    color: greenyellow !important;
+    color: rgb(153, 224, 46) !important;
 }
 
 .navbar-collapse {
@@ -50,7 +50,7 @@ navbar-toggle {
 
 .menuButton {
     background-color: rgb(82, 85, 100);
-    border: 1px solid greenyellow;
+    border: 1px solid rgb(153, 224, 46) ;
 }
 
 .shoppingCart {
@@ -58,7 +58,7 @@ navbar-toggle {
 }
 
 .glyphicon {
-    color: greenyellow !important;
+    color:rgb(153, 224, 46) !important;
 }
 
 .loggedInUser {
@@ -80,9 +80,22 @@ navbar-toggle {
 .formError {
     color: red;
 }
+/* .navbar-fixed-bottom{
+    height: 15px !important;
+
+} */
+.text-light {
+    padding:15px;
+    color: white !important;
+}
+a.text-success  {
+    padding:15px;
+    color: rgb(142, 207, 43) !important;
+}
 
 .regFormInput {
     margin: 1px;
+
 }
 
 .userGreeting {
