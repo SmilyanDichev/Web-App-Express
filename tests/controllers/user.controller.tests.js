@@ -13,6 +13,7 @@ describe('UserController', () => {
         data = {
             user: {
                 getById: (id) => {},
+                getOrders: () => [],
             },
             order: {
                 getById: (id) => {},
@@ -82,6 +83,24 @@ describe('UserController', () => {
             }]);
             const result = await UserController.updateOrCreateUserOrder(currentOrder, products);
             expect(result).to.be.an('array');
+            expect(result).to.have.lengthOf(1);
+        });
+    });
+
+    describe('_activeUserOrder', () => {
+        it('when active user order exists, expect number !== 0', async () => {
+            const userOrders = [{
+                id: 2,
+                orderStatusId: 3,
+            }];
+            sinon.stub(data.user, 'getById').returns({
+                id: 1,
+                name: 'Pesho',
+                getOrders: () => { return userOrders },
+            });
+            const result = await UserController._activeUserOrder(1);
+            expect(result).to.be.a('number');
+            expect(result).to.be.not.equal(0);
         });
     });
 });

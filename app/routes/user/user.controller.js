@@ -47,19 +47,18 @@ class UserController {
         if (activeOrder) {
             const currentOrder = await this.data.order.getById(activeOrder);
             const productsInOrder = await this._setQtyToProducts(productIdQty);
-            await this.data.order
+            return await this.data.order
                 .updateProductsInOrder(currentOrder, productsInOrder);
-        } else {
-            const orderObj = {
-                UserId: userId,
-                orderStatusId: 3,
-            };
-            const currentOrder = await this.data.order.create(orderObj);
-            await Promise.all(productIdQty.map(async (product) => {
-                return this.data.order
-                    .addProductsToOrder(currentOrder, product);
-            }));
         }
+        const orderObj = {
+            UserId: userId,
+            orderStatusId: 3,
+        };
+        const currentOrder = await this.data.order.create(orderObj);
+        return await Promise.all(productIdQty.map(async (product) => {
+            return this.data.order
+                .addProductsToOrder(currentOrder, product);
+        }));
     }
 
     async getActiveOrder(userId) {
