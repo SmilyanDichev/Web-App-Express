@@ -34,7 +34,7 @@ mixin navigation()
                   span.glyphicon.glyphicon-user
                   |  #{user.name}
               li
-                a(href='/logout')
+                a#logoutButton(href='/logout')
                   span.glyphicon.glyphicon-log-out
                   |  Logout
             else

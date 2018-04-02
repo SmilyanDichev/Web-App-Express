@@ -9,9 +9,20 @@ $(function () {
     });
 
     // NEEDS FIX - WORKS ONLY WITH FIRST IMAGE - DUPLICATING IDs
-    $("#editPictureUrl").on("input", function () {
-        $("#miniPicture").attr("src", $("#editPictureUrl").val());
-    });
+    // const $allMiniImgs = $(".editImgData");
+    // $allMiniImgs.on("input", ".editPictureUrl", function () {
+    //     const $url = $(this).val();
+    //     const $urlId = $(this).attr("data-id");
+    //     const $miniPic = $(".miniPicture").toArray().find(function (el) {
+    //         console.log(el);
+    //         if (el.id == $urlId) {
+    //             return el;
+    //         }
+    //     });
+    //     // $miniPic.attr("src", $url);
+    //     console.log($miniPic);
+
+    // });
 
     $("#close-create-product").on("click", function () {
         $("#createProductModal").modal("hide");
