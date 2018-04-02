@@ -79,17 +79,17 @@ $(function () {
                 password: $("#loginPassword").val()
             },
             success: function () {
-                // console.log("2nd ajax");
+                console.log("2nd ajax");
                 $.ajax({
                     type: "GET",
                     url: "user/cart",
                     dataType: "json",
                     success: function (responce) {
                         addCurentToStorage(responce);
+                        location.reload();
                     }
                 });
                 $("#loginModal").modal("hide");
-                location.reload();
             },
             error: function (er) {
                 $("#loginFormUserValidationError").text("Incorect!");
