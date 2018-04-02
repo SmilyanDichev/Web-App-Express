@@ -13,8 +13,6 @@ class UserController {
             let updateTime = user.updatedAt.toString();
             orderTime = orderTime.split('GMT');
             updateTime = updateTime.split('GMT');
-
-            // DELET THIS
             if (user.Products.length === 0) {
                 user.Products.push({
                     name: 'no name',
@@ -63,15 +61,14 @@ class UserController {
             }));
         }
     }
+
     async getActiveOrder(userId) {
         const user = await this.getUserById(userId);
         const email = user.email;
         const activeOrderContent = await this._getActiveOrders(email);
-        const products = await activeOrderContent.getProducts();
-        // const productsIncludingQty = _setQtyToProductsArray(product);
-
         return activeOrderContent.Products;
     }
+
     async _activeUserOrder(userId) {
         const user = await this.data.user.getById(userId);
         const userOrders = await user.getOrders();

@@ -39,8 +39,7 @@
   },
   "nyc": {
     "include": [
-        "**/*controller.js",
-        "**/*data.js"
+        "**/*controller.js"
     ]
   }
 }
