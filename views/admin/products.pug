@@ -43,9 +43,9 @@ block admincontent
                                         option(selected='selected' name=promo.type value=promo.id) #{promo.type}
                                     else
                                         option(name=promo.type value=promo.id) #{promo.type}
-                        td 
-                            img#miniPicture(src=product.pictureUrl width='50px' height='auto')
-                        td 
-                            input#editPictureUrl(type="url", name="pictureUrl", size='15', value=product.pictureUrl required='required')
+                        td.editImgData
+                            img.miniPicture(id=product.id src=product.pictureUrl width='50px' height='auto')
+                        td.editImgData
+                            input.editPictureUrl(type="url", name="pictureUrl", size='15', value=product.pictureUrl required='required')
                             button.ordersbtn.btn.btn-xs.btn-success(type='submit')  Submit
     +create-product()

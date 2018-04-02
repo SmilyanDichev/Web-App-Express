@@ -23,13 +23,13 @@ const init = (app, data) => {
                 res.redirect('/');
             }
         })
-        .get('/users', async (req, res) => {
-            const users = await data.user.getAll();
-            const context = {
-                users,
-            };
-            res.send(context);
-        })
+        // .get('/users', async (req, res) => {
+        //     const users = await data.user.getAll();
+        //     const context = {
+        //         users,
+        //     };
+        //     res.send(context);
+        // })
         .get('/products', async (req, res) => {
             if (req.user && req.user.isAdmin) {
                 const context = await controller.getAllProducts();
@@ -38,13 +38,13 @@ const init = (app, data) => {
                 res.redirect('/');
             }
         })
-        .get('/categories', async (req, res) => {
-            const categories = await data.category.getAll();
-            const context = {
-                categories,
-            };
-            res.send(context);
-        })
+        // .get('/categories', async (req, res) => {
+        //     const categories = await data.category.getAll();
+        //     const context = {
+        //         categories,
+        //     };
+        //     res.send(context);
+        // })
         .post('/orders', async (req, res) => {
             const order = req.body;
             const orderId = +order.orderId;

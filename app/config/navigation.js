@@ -14,18 +14,18 @@ const init = async (data) => {
             href: '/admin/orders',
             text: 'Orders',
         },
-        {
-            href: '/admin/users',
-            text: 'Users',
-        },
+        // {
+        //     href: '/admin/users',
+        //     text: 'Users',
+        // },
         {
             href: '/admin/products',
             text: 'Products',
         },
-        {
-            href: '/admin/categories',
-            text: 'Categories',
-        },
+        // {
+        //     href: '/admin/categories',
+        //     text: 'Categories',
+        // },
     ];
 
     return {
