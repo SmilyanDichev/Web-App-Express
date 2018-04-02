@@ -18,11 +18,16 @@ const init = (app, data) => {
             }
         })
         .get('/cart', async (req, res) => {
-            // console.log('in cart');
+            if (req.user.isAdmin) {
+                const msg ={
+                    msg: 'Admin',
+                };
+                res.status(404).json(msg);
+            }
             const userId = req.user.id;
-            // console.log('id '+ userId );
             const inCart = await controller.getActiveOrder(userId);
-            res.status(200).json(inCart);
+
+                res.status(200).json(inCart);
         })
         .post('/confirm', async (req, res) => {
             const userId = req.user.id;

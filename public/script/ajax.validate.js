@@ -87,9 +87,13 @@ $(function () {
                     success: function (responce) {
                         addCurentToStorage(responce);
                         location.reload();
+                    },
+                    error: function (error) {
+                        location.reload();
                     }
                 });
                 $("#loginModal").modal("hide");
+                // location.reload();
             },
             error: function (er) {
                 $("#loginFormUserValidationError").text("Incorect!");
