@@ -31,10 +31,9 @@ block content
                                 td #{order.date}
                                 td #{order.address}
                             tr.info
-                                td.text-center(colspan="4") Products
+                                td.text-center(colspan="4") Products: #{order.products.length}
                                     each product, indexProduct in order.products
                                         p
-                                            |  (#{indexProduct})
                                             |  #{product.name} 
                                             |  #{product.price}
 

@@ -11,7 +11,7 @@ $(function () {
                             console.log("Cleared");
                         }
                     });
-                    localStorage.clear();
+                   localStorage.clear();
                 }
             });
 });

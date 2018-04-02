@@ -13,6 +13,7 @@ class UserController {
             let updateTime = user.updatedAt.toString();
             orderTime = orderTime.split('GMT');
             updateTime = updateTime.split('GMT');
+
             // DELET THIS
             if (user.Products.length === 0) {
                 user.Products.push({
@@ -35,10 +36,6 @@ class UserController {
         return {
             ordersByUser,
         };
-    }
-    // TO DO: FINISH confirmOrder
-    async confirmOrder() {
-        return;
     }
 
     async confirmInCartOrder(userId) {
@@ -66,6 +63,15 @@ class UserController {
             }));
         }
     }
+    async getActiveOrder(userId) {
+        const user = await this.getUserById(userId);
+        const email = user.email;
+        const activeOrderContent = await this._getActiveOrders(email);
+        const products = await activeOrderContent.getProducts();
+        // const productsIncludingQty = _setQtyToProductsArray(product);
+
+        return activeOrderContent.Products;
+    }
     async _activeUserOrder(userId) {
         const user = await this.data.user.getById(userId);
         const userOrders = await user.getOrders();
@@ -77,7 +83,13 @@ class UserController {
         });
         return activeOrder;
     }
-
+    // async _setQtyToProductsArray() {
+    //     const productsQty = [];
+    //     products.forEach((prod) => {
+    //         productsQty.push(+prod.ordersProduct.quantity);
+    //     });
+    //     return 
+    // }
     async _setQtyToProducts(productQty) {
         const productsInOrder = await Promise.all(productQty
             .map(async (prod) => this.data.product.getById(+prod.id)));
@@ -102,6 +114,16 @@ class UserController {
             }
         });
         return nonAcvtiveOrders;
+    }
+    async _getActiveOrders(email) {
+        const userOrders = await this.data.order.getUserOrders(email);
+        let acvtiveOrder;
+        userOrders.forEach((order) => {
+            if (order.orderStatusId === 3) {
+                acvtiveOrder = order;
+            }
+        });
+        return acvtiveOrder;
     }
 
     _getProductsAndQuantities(arr) {
