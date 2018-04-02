@@ -8,7 +8,7 @@ $(function () {
                         url: "user",
                         data: clientOrders,
                         success: function (response) {
-                            console.log("Cleared");
+                            $.get("/logout");
                         }
                     });
                    localStorage.clear();
