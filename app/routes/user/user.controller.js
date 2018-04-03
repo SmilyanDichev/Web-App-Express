@@ -5,6 +5,19 @@ class UserController {
     async getUserById(id) {
         return this.data.user.getById(id);
     }
+
+    async createUser(formData) {
+        const address =
+            `${formData.city} ${formData.street} ${formData.apartment}`;
+        const newUser = {
+            name: formData.name,
+            email: formData.email,
+            address,
+            isAdmin: 0,
+            password: formData.password,
+        };
+        return await this.data.user.create(newUser);
+    }
     async getUserOrdersHistory(email) {
         let ordersByUser = await this._getNonActiveOrders(email);
         const sorted = this._sortByStatus(ordersByUser);

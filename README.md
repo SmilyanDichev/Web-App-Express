@@ -18,11 +18,11 @@ Online web application using Node.js, Express and MariaDB
 
 ## Pages: 
 1. Homepage Promo Products
-2. Product Category
+2. Products Categories
 3. Admin
 4. Admin Orders
 5. Admin Products
-6. User Not Loged In
+6. Anonnymous User
 7. User Logged In
 
 
@@ -39,12 +39,12 @@ Online web application using Node.js, Express and MariaDB
 8. Non logged user: Add product to cart
 9. Non logged user: View cart content
 10. Non logged user: Delete product from cart
-10. Logged user: Adds content from non logged user cart on login
-11. Logged user: Add product to cart
-12. Logged user: View cart content
-10. Logged user: Delete product from cart
-13. Logged user: View user order history
-13. Filter: Filter products by name 
+11. Logged user: Adds content from non logged user cart on login
+12. Logged user: Add product to cart
+13. Logged user: View cart content
+14. Logged user: Delete product from cart
+15. Logged user: View user order history
+16. Filter: Filter products by name 
 
 
 -------------------------------------
@@ -56,7 +56,7 @@ Every product has:
 	- quantity
 	- picture
 	- category
-	- promotion status
+	- discount
 
 ## User(cart):
 1. Everyone (not registered) will see 
@@ -77,7 +77,6 @@ Displays all products and product stats
 Admin can change:
 	- name
 	- price
-	- quantity
 	- picture
 	- category
 	- promotion status
@@ -87,5 +86,5 @@ Admin can change:
 ## Orders:
 Displays all orders and order stats 
 Admin can change:
-	- order status
+	- user's order status
 
