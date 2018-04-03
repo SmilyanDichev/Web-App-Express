@@ -1,114 +1,142 @@
 /* globals $ */
-$(function() {
-    const $name = $('#regFormName');
-    const $email = $('#regFormEmail');
-    const $password = $('#regFormPassword');
-    const $confirmPassword = $('#regFormPasswordConfirm');
-    const $line1 = $('#regFormLine1');
-    const $line2 = $('#regFormLine2');
-    const $line3 = $('#regFormLine3');
-    const $submitBtn = $('#regFormSubmit');
-    const $clearBtn = $('#regFormClose');
+$(function () {
+    const $name = $("#regFormName");
+    const $email = $("#regFormEmail");
+    const $password = $("#regFormPassword");
+    const $confirmPassword = $("#regFormPasswordConfirm");
+    const $line1 = $("#regFormLine1");
+    const $line2 = $("#regFormLine2");
+    const $line3 = $("#regFormLine3");
+    const $signUpAnchor = $("#signUpAnchor");
+    const $signUpBtn = $("regButtonloginSign");
 
-    const $nameError = $('#regFormNameError');
-    const $emailError = $('#regFormEmailError');
-    // const invalidEmailError = $('#regFormInvalidEmailError');
-    const $passwordError = $('#regFormPasswordError');
-    const $confirmPasswordError = $('#regFormPasswordConfirmError');
-    const $line1Error = $('#regFormLine1Error');
-    const $line2Error = $('#regFormLine2Error');
-    const $line3Error = $('#regFormLine3Error');
+    // const $submitBtn = $("#signinFormSubmit");
+    const $clearBtn = $("#signinFormClose");
 
-    $clearBtn.on('click', function() {
-        $name.val('');
-        $email.val('');
-        $password.val('');
-        $confirmPassword.val('');
-        $line1.val('');
-        $line2.val('');
-        $line3.val('');
-        $nameError.hide();
-        $emailError.hide();
-        $passwordError.hide();
-        $confirmPasswordError.hide();
-        $line1Error.hide();
-        $line2Error.hide();
-        $line3Error.hide();
+    const $nameError = $("#regFormNameError");
+    const $emailError = $("#regFormEmailError");
+    const $passwordError = $("#regFormPasswordError");
+    const $confirmPasswordError = $("#regFormPasswordConfirmError");
+    const $line1Error = $("#regFormLine1Error");
+    const $line2Error = $("#regFormLine2Error");
+    const $line3Error = $("#regFormLine3Error");
+
+    $signUpBtn.click(function() {
+        $name.val("");
+        $email.val("");
+        $password.val("");
+        $confirmPassword.val("");
+        $line1.val("");
+        $line2.val("");
+        $line3.val("");
+        $nameError.text("");
+        $emailError.text("");
+        $passwordError.text("");
+        $confirmPasswordError.text("");
+        $line1Error.text("");
+        $line2Error.text("");
+        $line3Error.text("");
     });
-    $submitBtn.on('click', function() {
-        let isName = false;
-        let isEmail = false;
-        let isPass = false;
-        let doPassMatch = false;
-        let isLine1 = false;
-        let isLine2 = false;
-        let isLine3 = false;
-        if ($name.val() === '') {
-            $nameError.show();
-        } else {
-            $nameError.hide();
-            isName = true;
-        }
 
-        if ($email.val() === '') {
-            $emailError.show();
-        } else {
-            $emailError.hide();
-            isEmail = true;
-        }
+    $signUpAnchor.click(function() {
+        $name.val("");
+        $email.val("");
+        $password.val("");
+        $confirmPassword.val("");
+        $line1.val("");
+        $line2.val("");
+        $line3.val("");
+        $nameError.text("");
+        $emailError.text("");
+        $passwordError.text("");
+        $confirmPasswordError.text("");
+        $line1Error.text("");
+        $line2Error.text("");
+        $line3Error.text("");
+    });
 
-        if ($password.val() === '') {
-            $passwordError.show();
-        } else {
-            $passwordError.hide();
-            isPass = true;
-        }
+    $clearBtn.on("click", function () {
+        $name.val("");
+        $email.val("");
+        $password.val("");
+        $confirmPassword.val("");
+        $line1.val("");
+        $line2.val("");
+        $line3.val("");
+        $nameError.text("");
+        $emailError.text("");
+        $passwordError.text("");
+        $confirmPasswordError.text("");
+        $line1Error.text("");
+        $line2Error.text("");
+        $line3Error.text("");
+    });
 
-        if ($password.val() !== $confirmPassword.val()) {
-            $confirmPasswordError.show();
+    $name.focusout(function () {
+        if ($name.val() === "") {
+            $nameError.text("Name required!");
         } else {
-            $confirmPasswordError.hide();
-            doPassMatch = true;
+            $nameError.text("");
         }
+    });
 
-        if ($line1.val() === '') {
-            $line1Error.show();
+    const validateEmail = (mail) => {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+            return true;
+        }
+        return false;
+    };
+
+    $email.focusout(function () {
+        if (validateEmail($email.val())) {
+            $emailError.text("");
+        } else if ($email.val() === "") {
+            $emailError.text("Email required!");
         } else {
-            $line1Error.hide();
-            isLine1 = true;
+            $emailError.text("Invalid email!");
         }
+    });
 
-        if ($line2.val() === '') {
-            $line2Error.show();
+    $password.focusout(function () {
+        if ($password.val() === "") {
+            $passwordError.text("Password required!");
         } else {
-            $line2Error.hide();
-            isLine2 = true;
+            $passwordError.text("");
         }
+    });
 
-        if ($line3.val() === '') {
-            $line3Error.show();
+    $confirmPassword.focusout(function () {
+        if ($confirmPassword.val() !== $password.val()) {
+                $confirmPasswordError.text("Passwords must match!");
+        } else if ($confirmPassword.val() === "") {
+            $confirmPasswordError.text("Password required!");
         } else {
-            $line3Error.hide();
-            isLine3 = true;
+            $confirmPasswordError.text("");
         }
+    });
 
-        if (isName && isEmail && isPass &&
-            doPassMatch && isLine1 &&
-            isLine2 && isLine3) {
-            // send to server
-            console.log({
-                name: $name.val(),
-                email: $email.val(),
-                password: $password.val(),
-                address: `${$line3.val()} ${$line1.val()} ${$line2.val()}`,
-            });
-            $name.val('');
-            $email.val('');
-            $password.val('');
-            $confirmPassword.val('');
-            $line1.val('');
-            $line2.val('');
-            $line3.val('');
+    $line1.focusout(function () {
+        if ($line1.val() === "") {
+            $line1Error.text("Required!");
+        } else {
+            $line1Error.text("");
         }
+    });
+
+    $line2.focusout(function () {
+        if ($line2.val() === "") {
+            $line2Error.text("Required!");
+        } else {
+            $line2Error.text("");
+        }
+    });
+
+    $line3.focusout(function () {
+        if ($line3.val() === "") {
+            $line3Error.text("Required!");
+        } else {
+            $line3Error.text("");
+        }
+        return false;
     });
 });

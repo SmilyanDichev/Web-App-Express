@@ -1,9 +1,11 @@
 body {
     background-color: rgb(254, 246, 235) !important;
     padding-top: 70px;
+    padding-bottom: 70px;
 }
-navbar-toggle{
-    height:0px !important;
+
+navbar-toggle {
+    height: 0px !important;
 }
 
 .nav {
@@ -15,7 +17,7 @@ navbar-toggle{
     color: rgb(255, 255, 255) !important;
 }
 
-.navbar-toggle{
+.navbar-toggle {
     padding: 0px;
     border: none !important;
 }
@@ -33,12 +35,31 @@ navbar-toggle{
 }
 
 .navbar-brand {
-    color: greenyellow !important;
+    color: rgb(153, 224, 46) !important;
 }
 
-.glyphicon{
-    color: greenyellow !important;
+.navbar-collapse {
+    max-height: fit-content !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 
+.navbar-form {
+    border: 0;
+    margin-left: 0;
+}
+
+.menuButton {
+    background-color: rgb(82, 85, 100);
+    border: 1px solid rgb(153, 224, 46) ;
+}
+
+.shoppingCart {
+    padding-right: 0.5em;
+}
+
+.glyphicon {
+    color:rgb(153, 224, 46) !important;
 }
 
 .loggedInUser {
@@ -46,20 +67,36 @@ navbar-toggle{
     color: black;
     font-weight: bold;
 }
-.reg-form div input{
+
+.reg-form div input {
     width: 12em;
 }
-.confirm-deliver-form, .modal-content,
-.login-form div.modal-content{
+
+.confirm-deliver-form,
+.modal-content,
+.login-form div.modal-content {
     margin-top: 70%;
 }
-.errorSpan
-{
-    display: none;
+
+.formError {
     color: red;
 }
+/* .navbar-fixed-bottom{
+    height: 15px !important;
+
+} */
+.text-light {
+    padding:15px;
+    color: white !important;
+}
+a.text-success  {
+    padding:15px;
+    color: rgb(142, 207, 43) !important;
+}
+
 .regFormInput {
     margin: 1px;
+
 }
 
 .userGreeting {
@@ -70,7 +107,8 @@ navbar-toggle{
     margin-left: 3%;
 }
 
-.ordersAdmin, .productsAdmin {
+.ordersAdmin,
+.productsAdmin {
     display: none;
 }
 
@@ -97,6 +135,7 @@ navbar-toggle{
     color: greenyellow;
     font-weight: bold;
 }
+
 .product-sale {
     color: greenyellow;
     font-weight: bold;
@@ -105,26 +144,25 @@ navbar-toggle{
     padding-top: 3%;
 }
 
-/* .saleContainer {
-    background-color: rgb(150, 192, 206);
-} */
-
-.price-was {
-    color: wheat;
-    font-size: 1.2em;
-    text-decoration: line-through;
-}
-
+.price-was,
 .product-oldPrice {
     color: wheat;
     font-size: 1.2em;
     text-decoration: line-through;
 }
 
+.product-price,
+.product-price-sign {
+    color: wheat;
+    font-size: 1.4em;
+    padding-top: 3%;
+}
+
 .price-now {
     color: greenyellow;
     font-size: 1.5em;
     text-decoration: underline;
+    padding-top: 3%;
 }
 
 .product-newPrice {
@@ -132,32 +170,76 @@ navbar-toggle{
     font-size: 1.5em;
 }
 
-.product-price {
-    color: wheat;
-    font-size: 20px;
-    padding-top: 3%;
+.product-quantity {
+    margin-top: 1%;
 }
 
 input[type=number] {
     width: 70px;
 }
 
-.modal-content{
+.modal-content {
     margin-top: 100px;
-    background-image:url('../imgs/add-product-modal.jpg');
+    background-image: url('../imgs/add-product-modal.jpg');
 }
 
-@media only screen and (max-width: 940px) {
-    div.reg-form label{
-      margin-bottom: 5%;
-    }
-  }
-@media only screen and (max-width: 400px) {
-    div.reg-form label{
-      display: none;
-    }
-  }
-.input-height{
+.inner-product-wrapper {
+    max-height: 410px;
+}
+
+.product-wrapper {
+    max-height: 500px;
+}
+
+.product-image {
+    height: 150px;
+    object-fit: contain;
+}
+
+.reg-form h2 {
+    margin-left: 39%;
+}
+
+.reg-form h2 {
+    margin-left: 39%;
+}
+
+.input-height {
     height: 50px;
 }
 
+/* @media only screen and (max-width: 940px) {
+    div.reg-form label{
+      margin-bottom: 5%;
+    }
+  } */
+
+@media only screen and (max-width: 500px) {
+    .reg-form h2 {
+        margin-left: 33%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    div.reg-form label {
+        display: none;
+    }
+    .reg-form div input {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .reg-form h2 {
+        margin-left: 30%;
+    }
+    .reg-form div input {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .reg-form h2 {
+        margin-left: 30%;
+    }
+}

@@ -3,9 +3,12 @@ const {
     Router,
 } = require('express');
 
+const Controller = require('../user/user.controller');
+
 
 const init = (app, data) => {
     const router = new Router();
+    const controller = new Controller(data);
     router
         .get('/logout', (req, res) => {
             req.logout();
@@ -14,8 +17,8 @@ const init = (app, data) => {
         .get('/login', (req, res) => {
             res.render('login');
         })
-        .post('/register', (req, res) => {
-            data.user.create(req.body);
+        .post('/register', async (req, res) => {
+            await controller.createUser(req.body);
             return res.redirect('/');
         })
         .post('/login', (req, res, next) => {
@@ -24,7 +27,7 @@ const init = (app, data) => {
                     return res.status(400).json(err);
                 }
                 if (!user) {
-                    return res.status(300).status(300).json(user);
+                    return res.status(300).json(user);
                 }
                 req.logIn(user, (er) => {
                     if (er) {

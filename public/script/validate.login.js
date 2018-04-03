@@ -1,46 +1,52 @@
 /* globals $ */
 $(function() {
-    const $email = $('#loginFormEmail');
-    const $password = $('#loginFormPassword');   
-    const $submitBtn = $('#loginFormSubmit');
-    const $clearBtn = $('#loginFormClose');
+    const $email = $("#loginEmail");
+    const $password = $("#loginPassword");
+    const $clearBtn = $("#loginFormClose");
+    const $loginAnchor = $("#loginAnchor");
+
+    const $emailError = $("#loginFormMailError");
+    const $passwordError = $("#loginFormPasswordError");
 
 
-    const $emailError = $('#loginFormMailError');
-    const $passwordError = $('#loginFormPasswordError');
-
-    $clearBtn.on('click', function() {
-        // alert('oof');
-        $email.val('');
-        $password.val('');
-        $passwordError.hide();
-        $emailError.hide();
+    $loginAnchor.click(function() {
+        $email.val("");
+        $password.val("");
+        $passwordError.text("");
+        $emailError.text("");
+        $("#loginFormUserValidationError").text("");
     });
-    $submitBtn.on('click', function() {
-        let isEmail = false;
-        let isPass = false;
-        if ($email.val() === '') {
-            $emailError.show();
-        } else {
-            $emailError.hide();
-            isEmail = true;
-        }
 
-        if ($password.val() === '') {
-            $passwordError.show();
-        } else {
-            $passwordError.hide();
-            isPass = true;
-        }
+    $clearBtn.on("click", function() {
+        $email.val("");
+        $password.val("");
+        $passwordError.text("");
+        $emailError.text("");
+        $("#loginFormUserValidationError").text("");
+    });
 
-        if (isEmail && isPass) {
-            // send to server
-            // console.log({
-            //     email: $email.val(),
-            //     password: $password.val(),
-            // });
-            $email.val('');
-            $password.val('');
+    const validateEmail = (mail) => {
+     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+        return true;
+      }
+        return false;
+    };
+
+    $email.focusout(function () {
+        if (validateEmail($email.val())) {
+            $emailError.text("");
+        } else if ($email.val() === "") {
+            $emailError.text("Email required!");
+        } else {
+            $emailError.text("Invalid email!");
         }
+    });
+    $password.focusout(function () {
+        if ($password.val() !== "") {
+            $passwordError.text("");
+        } else {
+            $passwordError.text("Password required!");
+        }
+        return false;
     });
 });

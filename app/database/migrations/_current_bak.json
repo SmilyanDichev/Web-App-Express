@@ -69,7 +69,6 @@
             "tableName": "ordersProducts",
             "schema": {
                 "quantity": {
-                    "allowNull": false,
                     "seqType": "Sequelize.INTEGER"
                 },
                 "createdAt": {
@@ -257,5 +256,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 1
 }

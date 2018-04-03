@@ -1,6 +1,6 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.bulkInsert('orderstatuses', [{
+        return queryInterface.bulkInsert('orderStatuses', [{
             type: 'Delivered',
             createdAt: new Date(),
             updatedAt: new Date(),

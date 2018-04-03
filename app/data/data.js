@@ -1,6 +1,4 @@
 const {
-    User,
-    Order,
     orderStatus,
     Product,
     Category,

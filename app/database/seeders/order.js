@@ -15,7 +15,7 @@ module.exports = {
                 createdAt: new Date(),
                 updatedAt: new Date(),
                 UserId: 3,
-                orderStatusId: 3,
+                orderStatusId: 2,
             },
         ], {});
     },

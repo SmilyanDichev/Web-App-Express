@@ -11,14 +11,14 @@ var Sequelize = require('sequelize');
  * createTable "Users", deps: []
  * createTable "Orders", deps: [Users, orderStatuses]
  * createTable "Products", deps: [Categories, Promotions]
- * createTable "products_orders", deps: [Products, Orders]
+ * createTable "ordersProducts", deps: [Products, Orders]
  *
  **/
 
 var info = {
     "revision": 1,
-    "name": "all-set-up",
-    "created": "2018-03-19T13:14:35.585Z",
+    "name": "all-set",
+    "created": "2018-03-31T07:42:00.895Z",
     "comment": ""
 };
 
@@ -258,8 +258,11 @@ var migrationCommands = [{
     {
         fn: "createTable",
         params: [
-            "products_orders",
+            "ordersProducts",
             {
+                "quantity": {
+                    "type": Sequelize.INTEGER
+                },
                 "createdAt": {
                     "type": Sequelize.DATE,
                     "allowNull": false

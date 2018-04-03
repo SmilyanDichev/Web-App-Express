@@ -29,4 +29,4 @@ app.use(attachNavButtons);
 require('./routes').init(app, data);
 
 app.listen(config.port);
-console.log('Server is running on port 3001');
+console.log(`Server is running on port ${config.port}`);

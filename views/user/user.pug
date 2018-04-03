@@ -2,20 +2,39 @@ extends ../_shared/master
 include ../_shared/login
 include ../_shared/register
 include ../_shared/choose
+include ../_shared/confirm
 
 block content
-    +login()
-    +register()
-    +chooseLoginSign()
-    .container
-        div
-            p Current order
-        div
-            a.btn.btn-default(href='#' data-toggle="modal" data-target="#signlogModal")
-                span Confirm delivery
+        +chooseLoginSign()
+        +confirmDelivery()
+        div.container
+            div.text-center 
+                h1 Current Order
+            div.col-xs-8.col-xs-offset-2(id='tableWrapper')
+            div(id='button').col-xs-8.col-xs-offset-2
+                a.col-xs-12.btn.btn-default(href='#' data-toggle='modal' data-target='#confirmDeliveryModal')
+                    span Confirm delivery!
+            div.col-xs-8.col-xs-offset-2.text-center 
+                h4 Order History
+            div.col-xs-8.col-xs-offset-2
+                table.table.table-bordered
+                    tbody
+                        tr.info
+                            td #
+                            td Status: 
+                            td Date: 
+                            td Adress: 
+                        each order, index in ordersByUser
+                            tr.active
+                                td #{index}
+                                td #{order.status}
+                                td #{order.date}
+                                td #{order.address}
+                            tr.info
+                                td.text-center(colspan="4") Products: #{order.products.length}
+                                    each product, indexProduct in order.products
+                                        p
+                                            |  #{product.name} 
+                                            |  #{product.price}
 
-        p History
-        ul
-        each order in ordersByUser
-            li
-                #{order.orderId}
+

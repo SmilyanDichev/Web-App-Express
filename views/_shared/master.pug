@@ -1,4 +1,5 @@
 include ./navigation
+include ./footer
 doctype html
 html(lang="en")
   head
@@ -17,9 +18,14 @@ html(lang="en")
     script(src="/static/script/ajax.validate.js")
     script(src="/static/script/modal.js")
     script(src="/static/script/cart.js")
-    script(src="/static/script/add.preview.product.js")
     script(src="/static/script/ajax.cart.js")
     script(src="/static/script/admin.products.js")
+    script(src="/static/script/show.local.order.js")
+    script(src="/static/script/search.js")
+    script(src="/static/script/clear.local.storage.on.logout.js")
+    script(src="/static/script/confirm.order.js")
   body
     +navigation()
     block content
+    block foot
+    +footer()

@@ -3,46 +3,51 @@ mixin navigation()
     .container-fluid
       .navbar-header
         a.navbar-brand(href='/') Food Store Express
-        //- img.navbar-left(src="/static/imgs/nav-logo.png")
         div.navbar-toggle
-            a(href='/user-anon')
-              span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
-                span.badge.items-basket 0
-            button.btn.btn-default(type='button', data-toggle='collapse', data-target='.collapse')
+            if user && user.isAdmin
+              span
+            else
+              a.shoppingCart(href="user/anon")
+                span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
+                  span.badge.items-basket  0
+            button.menuButton.btn.btn-default(type='button', data-toggle='collapse', data-target='.collapse')
               span.glyphicon.glyphicon-align-justify(aria-hidden="true")
       .collapse.navbar-collapse.container
           ul.nav.navbar-nav
             li.active
-              a(href='/') Home
+              a(href='/') PROMO
             each button in navButtons
               li
                 a(href=button.href) #{button.text}
             li
               form.navbar-form.navbar-left
                 div.input-group
-                  input(placeholder="Search..." type="text")
+                  input(id="searchBar" placeholder="Search..." type="text" name="search")
                   button.btn.btn-link(type="submit")
                     i.glyphicon.glyphicon-search
           ul.nav.navbar-nav.navbar-right
             li.hidden-xs
-              a(href="")
-                span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
-                  span.badge.items-basket  0
+              if user && user.isAdmin
+                span
+              else
+                a.shoppingCart(href="")
+                  span.glyphicon.glyphicon-shopping-cart(aria-hidden="true")
+                    span.badge.items-basket  0
             if user
               li
-                a(href='#')
+                a
                   span.glyphicon.glyphicon-user
                   |  #{user.name}
               li
-                a(href='/logout')
+                a#logoutButton(href='/logout')
                   span.glyphicon.glyphicon-log-out
                   |  Logout
             else
               li
-                a(href='#' data-toggle="modal" data-target="#regModal")
+                a(href='#' data-toggle="modal" data-target="#regModal", id="signUpAnchor")
                   span.glyphicon.glyphicon-user
                   |  Sign Up
               li
-                a(href='#' data-toggle="modal" data-target="#loginModal")
+                a(href='#' data-toggle="modal" data-target="#loginModal", id="loginAnchor")
                   span.glyphicon.glyphicon-log-in
                   |  Login

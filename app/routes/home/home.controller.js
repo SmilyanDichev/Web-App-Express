@@ -9,6 +9,7 @@ class HomePageController {
             const newPrice = this._calculateNewPrice(product.price,
                 product.Promotion.type);
             return {
+                id: product.id,
                 name: product.name,
                 pictureUrl: product.pictureUrl,
                 oldPrice: product.price,
@@ -28,6 +29,7 @@ class HomePageController {
                 const newPrice = this._calculateNewPrice(product.price,
                     product.Promotion.type);
                 return {
+                    id: product.id,
                     name: product.name,
                     pictureUrl: product.pictureUrl,
                     oldPrice: product.price,
@@ -36,6 +38,7 @@ class HomePageController {
                 };
             }
             return {
+                id: product.id,
                 name: product.name,
                 pictureUrl: product.pictureUrl,
                 oldPrice: product.price,
